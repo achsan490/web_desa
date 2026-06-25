@@ -1,0 +1,246 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ==========================================
+// USER & AUTH
+// ==========================================
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("OPERATOR") // SUPER_ADMIN, ADMIN_DESA, OPERATOR
+  avatar    String?
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  news       News[]
+  comments   Comment[]
+  activities Activity[]
+}
+
+// ==========================================
+// PROFIL DESA
+// ==========================================
+model VillageProfile {
+  id          String   @id @default(cuid())
+  history     String
+  vision      String
+  mission     String
+  kepalaName  String
+  kepalaImage String?
+  kepalaQuote String?
+  address     String
+  phone       String?
+  email       String?
+  whatsapp    String?
+  latitude    Float?
+  longitude   Float?
+  updatedAt   DateTime @updatedAt
+}
+
+// ==========================================
+// STATISTIK PENDUDUK
+// ==========================================
+model Statistic {
+  id        String   @id @default(cuid())
+  category  String   // POPULATION, GENDER, EDUCATION, OCCUPATION, RELIGION, AGE
+  label     String
+  value     Int
+  year      Int      @default(2025)
+  updatedAt DateTime @updatedAt
+}
+
+// ==========================================
+// BERITA
+// ==========================================
+model News {
+  id          String    @id @default(cuid())
+  title       String
+  slug        String    @unique
+  excerpt     String?
+  content     String
+  image       String?
+  category    String    @default("PEMERINTAHAN") // PEMERINTAHAN, PENDIDIKAN, KESEHATAN, UMKM, PERTANIAN, INFRASTRUKTUR, KEGIATAN
+  isPublished Boolean   @default(false)
+  views       Int       @default(0)
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  authorId String
+  author   User     @relation(fields: [authorId], references: [id])
+  comments Comment[]
+
+  @@index([slug])
+  @@index([category])
+}
+
+// ==========================================
+// KOMENTAR
+// ==========================================
+model Comment {
+  id        String   @id @default(cuid())
+  name      String
+  email     String?
+  content   String
+  isApproved Boolean @default(false)
+  createdAt DateTime @default(now())
+
+  newsId   String
+  news     News     @relation(fields: [newsId], references: [id], onDelete: Cascade)
+  userId   String?
+  user     User?    @relation(fields: [userId], references: [id])
+}
+
+// ==========================================
+// AGENDA
+// ==========================================
+model Agenda {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  location    String?
+  date        DateTime
+  startTime   String?
+  endTime     String?
+  status      String   @default("UPCOMING") // UPCOMING, ONGOING, DONE, CANCELLED
+  isPublished Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// ==========================================
+// GALERI
+// ==========================================
+model Gallery {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  url         String
+  type        String   @default("PHOTO") // PHOTO, VIDEO
+  category    String?
+  isPublished Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// ==========================================
+// POTENSI DESA
+// ==========================================
+model Potential {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  description String
+  category    String   // WISATA, UMKM, PERTANIAN, PETERNAKAN, KERAJINAN
+  image       String?
+  location    String?
+  contact     String?
+  isPublished Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// ==========================================
+// STRUKTUR ORGANISASI
+// ==========================================
+model Organization {
+  id        String   @id @default(cuid())
+  name      String
+  position  String
+  image     String?
+  phone     String?
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// ==========================================
+// PENGADUAN MASYARAKAT
+// ==========================================
+model Complaint {
+  id           String   @id @default(cuid())
+  ticketNumber String   @unique
+  name         String
+  nik          String
+  email        String?
+  phone        String?
+  category     String   // INFRASTRUKTUR, PELAYANAN, KEAMANAN, LINGKUNGAN, LAINNYA
+  description  String
+  evidenceUrl  String?
+  status       String   @default("PENDING") // PENDING, PROCESSING, DONE, REJECTED
+  adminNote    String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+// ==========================================
+// LAYANAN SURAT
+// ==========================================
+model LetterRequest {
+  id             String   @id @default(cuid())
+  ticketNumber   String   @unique
+  type           String   // DOMISILI, USAHA, TIDAK_MAMPU, PENGANTAR_NIKAH, KELAHIRAN, KEMATIAN
+  applicantName  String
+  nik            String
+  birthPlace     String?
+  birthDate      DateTime?
+  address        String?
+  phone          String?
+  email          String?
+  purpose        String?
+  status         String   @default("PENDING") // PENDING, PROCESSING, READY, REJECTED
+  adminNote      String?
+  pdfUrl         String?
+  additionalData String?  // JSON string untuk data tambahan per tipe surat
+  documentUrl    String?  // Upload KTP / dokumen pendukung
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+// ==========================================
+// DATA PENDUDUK
+// ==========================================
+model Resident {
+  id         String    @id @default(cuid())
+  nik        String    @unique
+  name       String
+  birthPlace String?
+  birthDate  DateTime?
+  gender     String    // LAKI_LAKI, PEREMPUAN
+  address    String?
+  rt         String?
+  rw         String?
+  religion   String?
+  education  String?
+  occupation String?
+  maritalStatus String?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+}
+
+// ==========================================
+// LOG AKTIVITAS ADMIN
+// ==========================================
+model Activity {
+  id        String   @id @default(cuid())
+  action    String
+  entity    String
+  entityId  String?
+  details   String?
+  createdAt DateTime @default(now())
+
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+}
