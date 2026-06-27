@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 export const revalidate = 300; // Revalidate setiap 5 menit
 
 async function getData() {
-  const [news, agenda, galleries, potentials] = await Promise.all([
+  const [news, agenda, galleries, potentials, profile] = await Promise.all([
     db.news.findMany({
       where: { isPublished: true },
       orderBy: { publishedAt: "desc" },
@@ -52,19 +52,28 @@ async function getData() {
       orderBy: { createdAt: "asc" },
       take: 6,
     }),
+    db.villageProfile.findFirst(),
   ]);
 
-  return { news, agenda, galleries, potentials };
+  return { news, agenda, galleries, potentials, profile };
 }
 
 export default async function HomePage() {
-  const { news, agenda, galleries, potentials } = await getData();
+  const { news, agenda, galleries, potentials, profile } = await getData();
+
+  const kepalaName = profile?.kepalaName || "H. Ahmad Fauzi, S.Sos";
+  const kepalaImage = profile?.kepalaImage || null;
+  const kepalaQuote = profile?.kepalaQuote || "Bersama warga, kita wujudkan Desa Sukamaju yang maju, mandiri, dan sejahtera. Setiap langkah pembangunan adalah wujud nyata dari komitmen kita untuk masa depan yang lebih baik.";
 
   return (
     <>
       <HeroSection />
       <StatistikSection />
-      <SambutanSection />
+      <SambutanSection 
+        kepalaName={kepalaName}
+        kepalaImage={kepalaImage}
+        kepalaQuote={kepalaQuote}
+      />
       <BeritaSection news={news} />
       <AgendaSection agenda={agenda} />
       <GaleriSection galleries={galleries} />
