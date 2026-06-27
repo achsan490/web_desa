@@ -34,6 +34,7 @@ const navGroups = [
       { href: "/admin/agenda", label: "Agenda", icon: Calendar },
       { href: "/admin/galeri", label: "Galeri", icon: Image },
       { href: "/admin/potensi", label: "Potensi Desa", icon: Sparkles },
+      { href: "/admin/profil", label: "Profil & Perangkat", icon: UserCog },
     ],
   },
   {
