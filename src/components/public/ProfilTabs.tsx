@@ -100,10 +100,11 @@ export default function ProfilTabs({
                 <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl p-6">
                   <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-4 max-h-64">
                     <Image
-                      src="https://images.unsplash.com/photo-1566753323558-f4e0952af115?w=400&q=80"
+                      src={profile.kepalaImage || "https://images.unsplash.com/photo-1566753323558-f4e0952af115?w=400&q=80"}
                       alt={profile.kepalaName}
                       fill
                       className="object-cover"
+                      unoptimized
                     />
                   </div>
                   <h3 className="font-bold text-gray-900">{profile.kepalaName}</h3>
@@ -189,8 +190,21 @@ export default function ProfilTabs({
             {org.slice(0, 1).map((m) => (
               <div key={m.id} className="flex justify-center mb-8">
                 <div className="bg-gradient-to-br from-emerald-600 to-emerald-800 rounded-2xl p-6 text-white text-center w-64 shadow-xl">
-                  <div className="w-20 h-20 rounded-xl bg-white/20 flex items-center justify-center mx-auto mb-4 text-2xl font-black">
-                    {m.name.split(" ").map(w => w[0]).slice(0, 2).join("")}
+                  <div className="relative w-20 h-20 rounded-xl overflow-hidden mx-auto mb-4">
+                    {m.image ? (
+                      <Image
+                        src={m.image}
+                        alt={m.name}
+                        fill
+                        sizes="80px"
+                        className="object-cover"
+                        unoptimized
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-white/20 flex items-center justify-center text-2xl font-black">
+                        {m.name.split(" ").map(w => w[0]).slice(0, 2).join("")}
+                      </div>
+                    )}
                   </div>
                   <p className="font-bold text-lg">{m.name}</p>
                   <p className="text-emerald-200 text-sm mt-1">{m.position}</p>
@@ -205,8 +219,21 @@ export default function ProfilTabs({
                   key={m.id}
                   className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 flex items-center gap-4 hover:shadow-md transition-shadow"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold text-sm flex-shrink-0">
-                    {m.name.split(" ").map(w => w[0]).slice(0, 2).join("")}
+                  <div className="relative w-12 h-12 rounded-xl overflow-hidden flex-shrink-0">
+                    {m.image ? (
+                      <Image
+                        src={m.image}
+                        alt={m.name}
+                        fill
+                        sizes="48px"
+                        className="object-cover"
+                        unoptimized
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold text-sm">
+                        {m.name.split(" ").map(w => w[0]).slice(0, 2).join("")}
+                      </div>
+                    )}
                   </div>
                   <div className="min-w-0">
                     <p className="font-semibold text-gray-900 text-sm truncate">{m.name}</p>
