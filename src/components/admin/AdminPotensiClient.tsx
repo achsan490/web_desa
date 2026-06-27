@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { toast } from "sonner";
-import { Plus, Pencil, Trash2, Search, MapPin, Phone, Link as LinkIcon, Image as ImageIcon, X } from "lucide-react";
+import { Plus, Pencil, Trash2, Search, MapPin, Phone, X, UploadCloud } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
@@ -43,6 +43,8 @@ export default function AdminPotensiClient({ initialData }: { initialData: Poten
   const [contact, setContact] = useState("");
   const [isPublished, setIsPublished] = useState(true);
   const [submitting, setSubmitting] = useState(false);
+  const [uploadingImage, setUploadingImage] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const filtered = data.filter((d) => {
     const matchSearch =
@@ -75,6 +77,33 @@ export default function AdminPotensiClient({ initialData }: { initialData: Poten
     setContact(item.contact || "");
     setIsPublished(item.isPublished);
     setIsModalOpen(true);
+  };
+
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (file.size > 10 * 1024 * 1024) {
+      toast.error("Ukuran file maksimal 10MB");
+      return;
+    }
+    setUploadingImage(true);
+    const formData = new FormData();
+    formData.append("file", file);
+    try {
+      const res = await fetch("/api/upload", { method: "POST", body: formData });
+      const json = await res.json();
+      if (res.ok && json.url) {
+        setImage(json.url);
+        toast.success("Gambar berhasil diunggah!");
+      } else {
+        toast.error(json.error || "Gagal mengunggah gambar.");
+      }
+    } catch {
+      toast.error("Terjadi kesalahan saat mengunggah.");
+    } finally {
+      setUploadingImage(false);
+      if (fileInputRef.current) fileInputRef.current.value = "";
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -414,19 +443,61 @@ export default function AdminPotensiClient({ initialData }: { initialData: Poten
                 </div>
               </div>
 
+              {/* Image Upload */}
               <div>
-                <label htmlFor="potensi-image" className="form-label">URL Gambar Sampul</label>
-                <div className="relative">
-                  <LinkIcon className="absolute left-3 top-3.5 h-4 w-4 text-gray-400" />
-                  <input
-                    type="text"
-                    id="potensi-image"
-                    value={image}
-                    onChange={(e) => setImage(e.target.value)}
-                    placeholder="https://res.cloudinary.com/... / https://picsum.photos/..."
-                    className="form-input pl-10 text-xs font-mono"
-                  />
-                </div>
+                <label className="form-label">Foto Sampul Potensi</label>
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                  className="hidden"
+                  id="potensi-file-upload"
+                />
+                {image ? (
+                  <div className="relative rounded-xl overflow-hidden border border-gray-200 bg-gray-50">
+                    <div className="relative w-full aspect-video">
+                      <Image src={image} alt="Preview" fill className="object-cover" unoptimized />
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setImage("")}
+                      className="absolute top-2 right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center hover:bg-red-600 transition"
+                    >
+                      <X className="h-3.5 w-3.5" />
+                    </button>
+                    <label
+                      htmlFor="potensi-file-upload"
+                      className="absolute bottom-2 right-2 bg-white/90 backdrop-blur text-xs font-semibold text-gray-700 px-3 py-1.5 rounded-lg cursor-pointer hover:bg-white transition border border-gray-200 flex items-center gap-1.5"
+                    >
+                      <UploadCloud className="h-3.5 w-3.5" />
+                      Ganti Foto
+                    </label>
+                  </div>
+                ) : (
+                  <label
+                    htmlFor="potensi-file-upload"
+                    className={cn(
+                      "flex flex-col items-center justify-center w-full h-36 border-2 border-dashed rounded-xl cursor-pointer transition",
+                      uploadingImage
+                        ? "border-emerald-300 bg-emerald-50"
+                        : "border-gray-200 bg-gray-50 hover:border-emerald-400 hover:bg-emerald-50/50"
+                    )}
+                  >
+                    {uploadingImage ? (
+                      <div className="flex flex-col items-center gap-2">
+                        <div className="w-7 h-7 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin" />
+                        <p className="text-sm text-emerald-600 font-medium">Mengunggah...</p>
+                      </div>
+                    ) : (
+                      <div className="flex flex-col items-center gap-2 text-gray-400">
+                        <UploadCloud className="h-8 w-8" />
+                        <p className="text-sm font-medium">Klik untuk unggah foto sampul</p>
+                        <p className="text-xs">PNG, JPG, WEBP (maks. 10MB)</p>
+                      </div>
+                    )}
+                  </label>
+                )}
               </div>
 
               <div className="flex items-center pt-2">
@@ -454,7 +525,7 @@ export default function AdminPotensiClient({ initialData }: { initialData: Poten
                 </button>
                 <button
                   type="submit"
-                  disabled={submitting}
+                  disabled={submitting || uploadingImage}
                   className="rounded-xl px-4 py-2 text-sm font-bold bg-emerald-600 hover:bg-emerald-700 text-white transition disabled:opacity-50"
                 >
                   {submitting ? "Menyimpan..." : "Simpan"}

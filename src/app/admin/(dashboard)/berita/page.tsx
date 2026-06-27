@@ -7,7 +7,19 @@ export const metadata: Metadata = { title: "Admin — Berita" };
 export default async function AdminBeritaPage() {
   const news = await db.news.findMany({
     orderBy: { createdAt: "desc" },
-    include: { author: { select: { name: true } } },
+    select: {
+      id: true,
+      title: true,
+      slug: true,
+      excerpt: true,
+      content: true,
+      image: true,
+      category: true,
+      isPublished: true,
+      publishedAt: true,
+      views: true,
+      author: { select: { name: true } },
+    },
   });
 
   return (
