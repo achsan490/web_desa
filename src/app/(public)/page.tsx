@@ -38,8 +38,8 @@ async function getData() {
       },
     }),
     db.agenda.findMany({
-      where: { isPublished: true, date: { gte: new Date() } },
-      orderBy: { date: "asc" },
+      where: { isPublished: true },
+      orderBy: { date: "desc" },
       take: 6,
     }),
     db.gallery.findMany({
