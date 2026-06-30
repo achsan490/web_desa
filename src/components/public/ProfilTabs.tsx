@@ -140,7 +140,7 @@ export default function ProfilTabs({
                 <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl p-6">
                   <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-white/50 border border-emerald-200">
                     <Image
-                      src="/images/gambar3.jfif"
+                      src="/images/gambar3.jpg"
                       alt="Balai Desa Pojok Klitih"
                       fill
                       className="object-cover"
@@ -369,7 +369,7 @@ export default function ProfilTabs({
                   </h3>
                   <div className="relative w-full aspect-square max-h-52 rounded-xl overflow-hidden mb-3 border border-gray-100 bg-gray-50">
                     <Image
-                      src="/images/gambar4.jfif"
+                      src="/images/gambar4.jpg"
                       alt="Peta Administrasi Jombang Plandaan"
                       fill
                       className="object-contain"

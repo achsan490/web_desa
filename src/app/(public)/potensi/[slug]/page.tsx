@@ -49,7 +49,7 @@ export default async function PotensiDetailPage({ params }: Props) {
       {/* Hero Banner */}
       <div className="relative h-64 md:h-96 overflow-hidden">
         <Image
-          src={potential.image || "/images/gambar2.jfif"}
+          src={potential.image || "/images/gambar2.jpg"}
           alt={potential.title}
           fill
           priority

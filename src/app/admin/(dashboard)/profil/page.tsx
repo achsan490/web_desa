@@ -15,7 +15,7 @@ export default async function AdminProfilPage() {
         vision: "Visi Desa Pojok Klitih...",
         mission: "Misi Desa Pojok Klitih...",
         kepalaName: "Pemerintah Desa Pojok Klitih",
-        kepalaImage: "/images/gambar5.jfif",
+        kepalaImage: "/images/gambar5.jpg",
         kepalaQuote: "Bersama Membangun Desa yang Maju, Mandiri, Sejahtera, dan Berbudaya.",
         address: "Kantor Desa Pojok Klitih, Kecamatan Plandaan, Kabupaten Jombang, Jawa Timur 61456",
         phone: "-",

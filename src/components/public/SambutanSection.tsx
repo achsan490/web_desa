@@ -43,7 +43,7 @@ export default function SambutanSection({ kepalaName, kepalaImage, kepalaQuote }
               {/* Main image */}
               <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl bg-gray-50 flex items-center justify-center">
                 <Image
-                  src={kepalaImage || "/images/gambar5.jfif"}
+                  src={kepalaImage || "/images/gambar5.jpg"}
                   alt={`Kepala Desa - ${kepalaName}`}
                   fill
                   className="object-cover"

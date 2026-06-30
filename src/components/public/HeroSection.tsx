@@ -28,7 +28,7 @@ export default function HeroSection() {
           className="w-full h-full bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
-              "url('/images/gambar2.jfif')",
+              "url('/images/gambar2.jpg')",
           }}
         />
         {/* Gradient Overlay */}
