@@ -28,7 +28,7 @@ export default function HeroSection() {
           className="w-full h-full bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1586771107445-d3ca888129ce?w=1920&q=80')",
+              "url('/images/gambar2.jfif')",
           }}
         />
         {/* Gradient Overlay */}
@@ -55,7 +55,7 @@ export default function HeroSection() {
           className="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 px-4 py-2 text-sm font-medium mb-8"
         >
           <MapPin className="h-3.5 w-3.5 text-emerald-300" />
-          <span>Kecamatan Ciawi · Kabupaten Bogor · Jawa Barat</span>
+          <span>Kecamatan Plandaan · Kabupaten Jombang · Jawa Timur</span>
         </motion.div>
 
         {/* Main Title */}
@@ -67,7 +67,7 @@ export default function HeroSection() {
         >
           Desa{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-amber-300">
-            Sukamaju
+            Pojok Klitih
           </span>
         </motion.h1>
 
@@ -78,7 +78,7 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 0.45 }}
           className="text-xl md:text-2xl text-white/80 font-medium mb-3 italic"
         >
-          &ldquo;Bersatu, Maju, Sejahtera&rdquo;
+          &ldquo;Bersama Membangun Desa yang Maju, Mandiri, Sejahtera, dan Berbudaya.&rdquo;
         </motion.p>
 
         <motion.p
@@ -87,7 +87,7 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 0.55 }}
           className="text-base md:text-lg text-white/70 max-w-2xl mx-auto mb-12"
         >
-          Selamat datang di website resmi Desa Sukamaju. Temukan informasi,
+          Selamat datang di website resmi Desa Pojok Klitih. Temukan informasi,
           layanan, dan potensi desa kami yang terus berkembang.
         </motion.p>
 

@@ -22,7 +22,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const desaName = process.env.NEXT_PUBLIC_DESA_NAME || "Desa Sukamaju";
+const desaName = process.env.NEXT_PUBLIC_DESA_NAME || "Desa Pojok Klitih";
 
 const navLinks = [
   { href: "/", label: "Beranda", icon: Home },
@@ -107,7 +107,7 @@ export default function Navbar() {
                       : "text-emerald-200"
                   )}
                 >
-                  Kab. Bogor, Jawa Barat
+                  Kab. Jombang, Jawa Timur
                 </p>
               </div>
             </Link>

@@ -350,7 +350,7 @@ export default function AdminPendudukClient({ initialData }: { initialData: Resi
                     id="penduduk-birth-place"
                     value={birthPlace}
                     onChange={(e) => setBirthPlace(e.target.value)}
-                    placeholder="Contoh: Bandung"
+                    placeholder="Contoh: Jombang"
                     className="form-input text-sm"
                   />
                 </div>

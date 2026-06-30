@@ -85,7 +85,7 @@ export default function LayananSuratPage() {
             <div className="bg-amber-50 border border-amber-200 rounded-2xl p-5">
               <h3 className="font-bold text-amber-800 mb-3 text-sm">📋 Syarat & Ketentuan</h3>
               <ul className="space-y-1.5 text-sm text-amber-700">
-                <li>• Pemohon adalah warga Desa Sukamaju</li>
+                <li>• Pemohon adalah warga Desa Pojok Klitih</li>
                 <li>• Melampirkan fotokopi KTP</li>
                 <li>• Data diisi dengan benar dan lengkap</li>
                 <li>• Surat diambil di kantor desa atau diunduh PDF</li>

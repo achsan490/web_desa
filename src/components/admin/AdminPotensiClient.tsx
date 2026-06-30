@@ -380,7 +380,7 @@ export default function AdminPotensiClient({ initialData }: { initialData: Poten
                   id="potensi-title"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                  placeholder="Contoh: Kopi Luwak Ciwidey"
+                  placeholder="Contoh: Kopi Excelsa Wonosalam Jombang"
                   className="form-input"
                   required
                 />

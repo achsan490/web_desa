@@ -7,7 +7,7 @@ import { MapPin, Phone, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Potensi Desa",
-  description: "Potensi wisata, UMKM, pertanian, peternakan, dan kerajinan Desa Sukamaju.",
+  description: "Potensi wisata, UMKM, pertanian, peternakan, dan kerajinan Desa Pojok Klitih.",
 };
 
 export const revalidate = 3600;
@@ -35,7 +35,7 @@ export default async function PotensiPage() {
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle,white_1px,transparent_1px)] [background-size:24px_24px]" />
         <div className="container-custom relative z-10">
           <h1 className="text-4xl md:text-5xl font-black mb-3">Potensi Desa</h1>
-          <p className="text-emerald-200 text-lg">{potentials.length} potensi unggulan Desa Sukamaju</p>
+          <p className="text-emerald-200 text-lg">{potentials.length} potensi unggulan Desa Pojok Klitih</p>
         </div>
       </div>
 
@@ -51,34 +51,41 @@ export default async function PotensiPage() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {items.map((item) => (
-                <article key={item.id} className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group">
-                  <div className="relative aspect-video overflow-hidden">
-                    <Image
-                      src={item.image || "https://picsum.photos/seed/potensi/800/450"}
-                      alt={item.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-5">
-                    <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-emerald-600 transition-colors">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-500 text-sm line-clamp-3 mb-4">{item.description}</p>
-                    <div className="space-y-1.5">
-                      {item.location && (
-                        <div className="flex items-center gap-2 text-xs text-gray-400">
-                          <MapPin className="h-3.5 w-3.5" />{item.location}
-                        </div>
-                      )}
-                      {item.contact && (
-                        <div className="flex items-center gap-2 text-xs text-gray-400">
-                          <Phone className="h-3.5 w-3.5" />{item.contact}
-                        </div>
-                      )}
+                <Link href={`/potensi/${item.slug}`} key={item.id} className="group">
+                  <article className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col h-full">
+                    <div className="relative aspect-video overflow-hidden">
+                      <Image
+                        src={item.image || "https://picsum.photos/seed/potensi/800/450"}
+                        alt={item.title}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                     </div>
-                  </div>
-                </article>
+                    <div className="p-5 flex flex-col flex-grow justify-between">
+                      <div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-emerald-600 transition-colors">
+                          {item.title}
+                        </h3>
+                        <p className="text-gray-500 text-sm line-clamp-3 mb-4">{item.description}</p>
+                        <div className="space-y-1.5 mb-4">
+                          {item.location && (
+                            <div className="flex items-center gap-2 text-xs text-gray-400">
+                              <MapPin className="h-3.5 w-3.5" />{item.location}
+                            </div>
+                          )}
+                          {item.contact && (
+                            <div className="flex items-center gap-2 text-xs text-gray-400">
+                              <Phone className="h-3.5 w-3.5" />{item.contact}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      <div className="border-t border-gray-50 pt-4 flex items-center text-xs font-bold text-emerald-600 group-hover:text-emerald-700 gap-1 mt-auto">
+                        Lihat Selengkapnya <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
+                      </div>
+                    </div>
+                  </article>
+                </Link>
               ))}
             </div>
           </div>

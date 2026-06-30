@@ -15,7 +15,7 @@ import {
   Legend,
 } from "recharts";
 import { formatNumber } from "@/lib/utils";
-import { Users, GraduationCap, Briefcase, Heart, Clock } from "lucide-react";
+import { Users, GraduationCap, Briefcase, Heart, Clock, Home, Map, Mountain } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type Stat = { id: string; category: string; label: string; value: number; year: number };
@@ -38,8 +38,8 @@ export default function DataDesaClient({ grouped }: { grouped: Record<string, St
 
   const totalPop = population.find((p) => p.label === "Total Penduduk")?.value || 0;
   const totalKK = population.find((p) => p.label === "Jumlah KK")?.value || 0;
-  const totalRT = population.find((p) => p.label === "Jumlah RT")?.value || 0;
-  const totalRW = population.find((p) => p.label === "Jumlah RW")?.value || 0;
+  const totalDusun = population.find((p) => p.label === "Jumlah Dusun")?.value || 0;
+  const totalKetinggian = population.find((p) => p.label === "Ketinggian")?.value || 0;
 
   const isPie = activeTab === "GENDER" || activeTab === "RELIGION";
 
@@ -48,16 +48,19 @@ export default function DataDesaClient({ grouped }: { grouped: Record<string, St
       {/* Summary Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
         {[
-          { label: "Total Penduduk", value: totalPop, unit: "jiwa", color: "bg-emerald-600" },
-          { label: "Kepala Keluarga", value: totalKK, unit: "KK", color: "bg-blue-600" },
-          { label: "Jumlah RT", value: totalRT, unit: "RT", color: "bg-amber-600" },
-          { label: "Jumlah RW", value: totalRW, unit: "RW", color: "bg-purple-600" },
+          { label: "Total Penduduk", value: totalPop, unit: "jiwa", color: "bg-emerald-600", icon: Users, customValue: null },
+          { label: "Kepala Keluarga", value: totalKK, unit: "KK", color: "bg-blue-600", icon: Home, customValue: "±850–950" },
+          { label: "Jumlah Dusun", value: totalDusun, unit: "dusun", color: "bg-amber-600", icon: Map, customValue: null },
+          { label: "Ketinggian Wilayah", value: totalKetinggian, unit: "mdpl", color: "bg-purple-600", icon: Mountain, customValue: "±44" },
         ].map((item) => (
           <div key={item.label} className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 text-center">
             <div className={`w-10 h-10 rounded-xl ${item.color} flex items-center justify-center mx-auto mb-3`}>
-              <Users className="h-5 w-5 text-white" />
+              <item.icon className="h-5 w-5 text-white" />
             </div>
-            <p className="text-2xl font-black text-gray-900">{formatNumber(item.value)}</p>
+            <p className="text-2xl font-black text-gray-900">
+              {item.customValue ? item.customValue : formatNumber(item.value)}
+              <span className="text-xs font-semibold text-gray-450 ml-1">{item.unit}</span>
+            </p>
             <p className="text-xs text-gray-500 mt-0.5">{item.label}</p>
           </div>
         ))}

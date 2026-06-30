@@ -56,7 +56,7 @@ export default function PotensiSection({ potentials }: { potentials: PotentialIt
             <h2 className="text-3xl md:text-4xl font-black text-white">
               Potensi{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 to-yellow-200">
-                Desa Sukamaju
+                Desa Pojok Klitih
               </span>
             </h2>
             <p className="text-emerald-200/80 mt-2">

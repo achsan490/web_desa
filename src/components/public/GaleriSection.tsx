@@ -42,7 +42,7 @@ export default function GaleriSection({ galleries }: { galleries: GalleryItem[] 
               Galeri <span className="gradient-text">Desa</span>
             </h2>
             <p className="text-gray-500 mt-2">
-              Momen berharga kehidupan Desa Sukamaju
+              Momen berharga kehidupan Desa Pojok Klitih
             </p>
           </div>
           <Link

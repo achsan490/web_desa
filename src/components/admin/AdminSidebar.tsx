@@ -83,7 +83,7 @@ export default function AdminSidebar({ role }: { role: string }) {
           </div>
           <div>
             <p className="font-bold text-gray-900 text-sm">Admin Panel</p>
-            <p className="text-xs text-gray-400">Desa Sukamaju</p>
+            <p className="text-xs text-gray-400">Desa Pojok Klitih</p>
           </div>
         </Link>
       </div>

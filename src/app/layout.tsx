@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     process.env.NEXTAUTH_URL || "http://localhost:3000"
   ),
   title: {
-    default: `${process.env.NEXT_PUBLIC_DESA_NAME || "Desa Sukamaju"} — Website Resmi Desa`,
-    template: `%s | ${process.env.NEXT_PUBLIC_DESA_NAME || "Desa Sukamaju"}`,
+    default: `${process.env.NEXT_PUBLIC_DESA_NAME || "Desa Pojok Klitih"} — Website Resmi Desa`,
+    template: `%s | ${process.env.NEXT_PUBLIC_DESA_NAME || "Desa Pojok Klitih"}`,
   },
-  description: `Website resmi ${process.env.NEXT_PUBLIC_DESA_NAME || "Desa Sukamaju"}, ${process.env.NEXT_PUBLIC_DESA_KECAMATAN || "Kecamatan Ciawi"}, ${process.env.NEXT_PUBLIC_DESA_KABUPATEN || "Kabupaten Bogor"}, ${process.env.NEXT_PUBLIC_DESA_PROVINSI || "Jawa Barat"}. Informasi desa, layanan publik, berita, agenda, dan potensi desa.`,
+  description: `Website resmi ${process.env.NEXT_PUBLIC_DESA_NAME || "Desa Pojok Klitih"}, ${process.env.NEXT_PUBLIC_DESA_KECAMATAN || "Kecamatan Plandaan"}, ${process.env.NEXT_PUBLIC_DESA_KABUPATEN || "Kabupaten Jombang"}, ${process.env.NEXT_PUBLIC_DESA_PROVINSI || "Jawa Timur"}. Informasi desa, layanan publik, berita, agenda, dan potensi desa.`,
   keywords: [
-    "desa sukamaju",
+    "desa pojok klitih",
     "website desa",
     "profil desa",
     "layanan surat desa",
@@ -27,13 +27,13 @@ export const metadata: Metadata = {
     "berita desa",
     "potensi desa",
   ],
-  authors: [{ name: "Pemerintah Desa Sukamaju" }],
+  authors: [{ name: "Pemerintah Desa Pojok Klitih" }],
   openGraph: {
     type: "website",
     locale: "id_ID",
-    siteName: process.env.NEXT_PUBLIC_DESA_NAME || "Desa Sukamaju",
-    title: `Website Resmi ${process.env.NEXT_PUBLIC_DESA_NAME || "Desa Sukamaju"}`,
-    description: `Website resmi Desa Sukamaju — informasi, layanan publik, dan potensi desa`,
+    siteName: process.env.NEXT_PUBLIC_DESA_NAME || "Desa Pojok Klitih",
+    title: `Website Resmi ${process.env.NEXT_PUBLIC_DESA_NAME || "Desa Pojok Klitih"}`,
+    description: `Website resmi Desa Pojok Klitih — informasi, layanan publik, dan potensi desa`,
   },
   robots: {
     index: true,

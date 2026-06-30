@@ -8,7 +8,7 @@ cloudinary.config({
 
 export async function uploadToCloudinary(
   file: Buffer,
-  folder: string = "desa-sukamaju"
+  folder: string = "desa-pojok-klitih"
 ): Promise<{ url: string; publicId: string }> {
   return new Promise((resolve, reject) => {
     cloudinary.uploader

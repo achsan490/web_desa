@@ -13,14 +13,14 @@ import {
   Heart,
 } from "lucide-react";
 
-const desaName = process.env.NEXT_PUBLIC_DESA_NAME || "Desa Sukamaju";
-const kecamatan = process.env.NEXT_PUBLIC_DESA_KECAMATAN || "Kecamatan Ciawi";
-const kabupaten = process.env.NEXT_PUBLIC_DESA_KABUPATEN || "Kabupaten Bogor";
-const provinsi = process.env.NEXT_PUBLIC_DESA_PROVINSI || "Jawa Barat";
-const kodePos = process.env.NEXT_PUBLIC_DESA_KODE_POS || "16730";
-const telepon = process.env.NEXT_PUBLIC_DESA_TELEPON || "(0251) 123456";
-const email = process.env.NEXT_PUBLIC_DESA_EMAIL || "desasukamaju@gmail.com";
-const whatsapp = process.env.NEXT_PUBLIC_DESA_WHATSAPP || "628123456789";
+const desaName = process.env.NEXT_PUBLIC_DESA_NAME || "Desa Pojok Klitih";
+const kecamatan = process.env.NEXT_PUBLIC_DESA_KECAMATAN || "Kecamatan Plandaan";
+const kabupaten = process.env.NEXT_PUBLIC_DESA_KABUPATEN || "Kabupaten Jombang";
+const provinsi = process.env.NEXT_PUBLIC_DESA_PROVINSI || "Jawa Timur";
+const kodePos = process.env.NEXT_PUBLIC_DESA_KODE_POS || "61456";
+const telepon = process.env.NEXT_PUBLIC_DESA_TELEPON || "-";
+const email = process.env.NEXT_PUBLIC_DESA_EMAIL || "desapojokklitih@gmail.com";
+const whatsapp = process.env.NEXT_PUBLIC_DESA_WHATSAPP || "";
 
 const quickLinks = [
   { href: "/", label: "Beranda" },
@@ -154,7 +154,7 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
                 <p className="text-sm text-gray-400 leading-relaxed">
-                  Jl. Raya Sukamaju No. 1, {kecamatan}, {kabupaten}, {provinsi}{" "}
+                  Kantor Desa Pojok Klitih, {kecamatan}, {kabupaten}, {provinsi}{" "}
                   {kodePos}
                 </p>
               </li>
@@ -179,21 +179,23 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <Globe className="h-4 w-4 text-emerald-500 flex-shrink-0" />
                 <span className="text-sm text-gray-400">
-                  desasukamaju.id
+                  pojokklitih.desa.id
                 </span>
               </li>
             </ul>
 
             {/* WhatsApp CTA */}
-            <a
-              href={`https://wa.me/${whatsapp}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 flex items-center gap-2 rounded-xl bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white w-fit hover:bg-emerald-700 transition-colors"
-            >
-              <MessageCircle className="h-4 w-4" />
-              Chat WhatsApp
-            </a>
+            {whatsapp && (
+              <a
+                href={`https://wa.me/${whatsapp}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 flex items-center gap-2 rounded-xl bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white w-fit hover:bg-emerald-700 transition-colors"
+              >
+                <MessageCircle className="h-4 w-4" />
+                Chat WhatsApp
+              </a>
+            )}
           </div>
         </div>
       </div>
@@ -205,7 +207,7 @@ export default function Footer() {
             © {new Date().getFullYear()} {desaName}. Hak Cipta Dilindungi.
           </p>
           <p className="text-xs text-gray-500 flex items-center gap-1">
-            Dibuat dengan <Heart className="h-3 w-3 text-red-500 fill-red-500" /> oleh Tim IT Desa Sukamaju
+            Dibuat dengan <Heart className="h-3 w-3 text-red-500 fill-red-500" /> oleh San Project & Kelompok 27 KKN Angkatan 2026
           </p>
         </div>
       </div>

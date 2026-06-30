@@ -7,7 +7,7 @@ import { notFound } from "next/navigation";
 export const metadata: Metadata = {
   title: "Profil Desa",
   description:
-    "Profil lengkap Desa Sukamaju: sejarah, visi misi, struktur organisasi, dan data wilayah.",
+    "Profil lengkap Desa Pojok Klitih: sejarah, visi misi, struktur organisasi, dan data wilayah.",
 };
 
 export const revalidate = 3600;
@@ -29,8 +29,8 @@ export default async function ProfilPage() {
       {/* Hero */}
       <div className="relative h-64 md:h-80 overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=1920&q=80"
-          alt="Profil Desa Sukamaju"
+          src="/images/gambar15.jpg"
+          alt="Profil Desa Pojok Klitih"
           fill
           className="object-cover"
         />
@@ -42,7 +42,7 @@ export default async function ProfilPage() {
             </p>
             <h1 className="text-4xl md:text-5xl font-black">Profil Desa</h1>
             <p className="text-white/70 mt-2">
-              Mengenal lebih dekat Desa Sukamaju
+              Mengenal lebih dekat Desa Pojok Klitih
             </p>
           </div>
         </div>

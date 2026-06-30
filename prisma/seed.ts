@@ -12,33 +12,33 @@ async function main() {
   const hashedPassword = await bcrypt.hash("admin123", 12);
 
   await prisma.user.upsert({
-    where: { email: "superadmin@desasukamaju.id" },
+    where: { email: "superadmin@desapojokklitih.id" },
     update: {},
     create: {
       name: "Super Admin",
-      email: "superadmin@desasukamaju.id",
+      email: "superadmin@desapojokklitih.id",
       password: hashedPassword,
       role: "SUPER_ADMIN",
     },
   });
 
   await prisma.user.upsert({
-    where: { email: "admin@desasukamaju.id" },
+    where: { email: "admin@desapojokklitih.id" },
     update: {},
     create: {
       name: "Admin Desa",
-      email: "admin@desasukamaju.id",
+      email: "admin@desapojokklitih.id",
       password: hashedPassword,
       role: "ADMIN_DESA",
     },
   });
 
   const operator = await prisma.user.upsert({
-    where: { email: "operator@desasukamaju.id" },
+    where: { email: "operator@desapojokklitih.id" },
     update: {},
     create: {
       name: "Budi Santoso",
-      email: "operator@desasukamaju.id",
+      email: "operator@desapojokklitih.id",
       password: hashedPassword,
       role: "OPERATOR",
     },
@@ -52,26 +52,30 @@ async function main() {
     update: {},
     create: {
       id: "village-profile-1",
-      history: `Desa Sukamaju berdiri sejak tahun 1945, tepat saat Indonesia memproklamasikan kemerdekaannya. Awalnya merupakan wilayah perkebunan yang kemudian berkembang menjadi pemukiman. Nama "Sukamaju" berasal dari kata "suka" yang berarti senang/gemar dan "maju" yang berarti berkembang, mencerminkan semangat warga yang selalu ingin maju dan berkembang bersama.
+      history: `Desa Pojok Klitih merupakan salah satu desa yang berada di wilayah administratif Kecamatan Plandaan, Kabupaten Jombang, Provinsi Jawa Timur. Desa ini berada di kawasan utara Kabupaten Jombang dan memiliki karakteristik wilayah agraris dengan mayoritas penduduk bermata pencaharian di sektor pertanian, peternakan, serta usaha mikro masyarakat. Desa Pojok Klitih dikenal sebagai salah satu desa dengan jumlah dusun terbanyak di Kecamatan Plandaan, yang menunjukkan luas wilayah administratif dan persebaran penduduk yang cukup besar.
 
-Pada era tahun 1960-an, Desa Sukamaju mulai berkembang pesat dengan adanya program transmigrasi lokal. Penduduk dari berbagai daerah datang dan menetap, membawa kekayaan budaya yang beragam. Infrastruktur desa mulai dibangun secara bertahap oleh pemerintah kolonial Belanda dan kemudian dilanjutkan oleh pemerintah Indonesia.
+Sejarah Desa Pojok Klitih berkembang dari wilayah permukiman masyarakat agraris yang telah ada sejak masa pemerintahan tradisional Jawa. Nama "Pojok" berasal dari letak geografis wilayah yang berada pada bagian tertentu dari kawasan administratif terdahulu, sedangkan "Klitih" merupakan nama wilayah yang telah digunakan secara turun-temurun oleh masyarakat setempat.
 
-Memasuki era reformasi tahun 1998, Desa Sukamaju mengalami transformasi besar dalam tata kelola pemerintahan. Dengan diterapkannya otonomi daerah, desa mendapat kewenangan lebih besar untuk mengelola potensi dan sumber daya yang ada. Sejak saat itu, berbagai program pembangunan terus dijalankan untuk meningkatkan kesejahteraan warga.`,
-      vision: "Mewujudkan Desa Sukamaju yang Maju, Mandiri, Sejahtera, dan Berkeadilan berbasis pada Potensi Lokal dan Nilai-nilai Gotong Royong",
-      mission: `1. Meningkatkan kualitas pelayanan publik yang transparan, akuntabel, dan profesional
-2. Mengembangkan potensi ekonomi lokal melalui pemberdayaan UMKM dan pertanian modern
-3. Meningkatkan kualitas sumber daya manusia melalui pendidikan dan pelatihan
-4. Membangun infrastruktur desa yang memadai dan berkelanjutan
-5. Melestarikan budaya dan kearifan lokal sebagai identitas desa
-6. Menciptakan lingkungan yang bersih, sehat, dan asri untuk generasi mendatang`,
-      kepalaName: "H. Ahmad Fauzi, S.Sos",
-      kepalaQuote: "Bersama warga, kita wujudkan Desa Sukamaju yang maju, mandiri, dan sejahtera. Setiap langkah pembangunan adalah wujud nyata dari komitmen kita untuk masa depan yang lebih baik.",
-      address: "Jl. Raya Sukamaju No. 1, Kecamatan Ciawi, Kabupaten Bogor, Jawa Barat 16730",
-      phone: "(0251) 123456",
-      email: "desasukamaju@gmail.com",
-      whatsapp: "628123456789",
-      latitude: -6.6270,
-      longitude: 106.8500,
+Perkembangan desa berlangsung seiring dengan pertumbuhan sektor pertanian dan perdagangan lokal. Hingga saat ini, masyarakat Desa Pojok Klitih masih mempertahankan nilai-nilai budaya, gotong royong, musyawarah, dan kearifan lokal yang diwariskan oleh para pendahulu.
+
+Catatan KKN: Apabila memungkinkan, sejarah ini dapat dilengkapi melalui wawancara langsung dengan Kepala Desa, Sekretaris Desa, atau tokoh masyarakat setempat.`,
+      vision: "Terwujudnya Desa Pojok Klitih yang Maju, Mandiri, Sejahtera, Berbudaya, dan Berdaya Saing Berlandaskan Gotong Royong.",
+      mission: `Meningkatkan kualitas pelayanan publik kepada masyarakat.
+Meningkatkan pembangunan infrastruktur desa.
+Mengembangkan potensi ekonomi masyarakat berbasis lokal.
+Meningkatkan kualitas pendidikan dan kesehatan masyarakat.
+Mendorong pemberdayaan UMKM dan kelompok usaha masyarakat.
+Melestarikan budaya dan tradisi lokal.
+Mewujudkan tata kelola pemerintahan desa yang transparan dan akuntabel.`,
+      kepalaName: "Pemerintah Desa Pojok Klitih",
+      kepalaImage: "/images/gambar5.jfif",
+      kepalaQuote: "Bersama Membangun Desa yang Maju, Mandiri, Sejahtera, dan Berbudaya.",
+      address: "Kantor Desa Pojok Klitih, Kecamatan Plandaan, Kabupaten Jombang, Jawa Timur 61456",
+      phone: "-",
+      email: "desapojokklitih@gmail.com",
+      whatsapp: "-",
+      latitude: -7.4225,
+      longitude: 112.1116,
     },
   });
 
@@ -80,41 +84,34 @@ Memasuki era reformasi tahun 1998, Desa Sukamaju mengalami transformasi besar da
   // ==========================================
   const statistics = [
     // POPULATION
-    { category: "POPULATION", label: "Total Penduduk", value: 4521, year: 2025 },
-    { category: "POPULATION", label: "Jumlah KK", value: 1247, year: 2025 },
-    { category: "POPULATION", label: "Jumlah RT", value: 24, year: 2025 },
-    { category: "POPULATION", label: "Jumlah RW", value: 6, year: 2025 },
+    { category: "POPULATION", label: "Total Penduduk", value: 3372, year: 2026 },
+    { category: "POPULATION", label: "Jumlah KK", value: 900, year: 2026 },
+    { category: "POPULATION", label: "Jumlah Dusun", value: 14, year: 2026 },
+    { category: "POPULATION", label: "Ketinggian", value: 44, year: 2026 },
     // GENDER
-    { category: "GENDER", label: "Laki-laki", value: 2280, year: 2025 },
-    { category: "GENDER", label: "Perempuan", value: 2241, year: 2025 },
+    { category: "GENDER", label: "Laki-laki", value: 1698, year: 2026 },
+    { category: "GENDER", label: "Perempuan", value: 1674, year: 2026 },
     // EDUCATION
-    { category: "EDUCATION", label: "Tidak Sekolah", value: 120, year: 2025 },
-    { category: "EDUCATION", label: "SD", value: 980, year: 2025 },
-    { category: "EDUCATION", label: "SMP", value: 850, year: 2025 },
-    { category: "EDUCATION", label: "SMA/SMK", value: 1450, year: 2025 },
-    { category: "EDUCATION", label: "D3", value: 320, year: 2025 },
-    { category: "EDUCATION", label: "S1", value: 680, year: 2025 },
-    { category: "EDUCATION", label: "S2/S3", value: 121, year: 2025 },
+    { category: "EDUCATION", label: "SD/MI", value: 750, year: 2026 },
+    { category: "EDUCATION", label: "SMP", value: 980, year: 2026 },
+    { category: "EDUCATION", label: "SMA/SMK", value: 1200, year: 2026 },
+    { category: "EDUCATION", label: "Perguruan Tinggi", value: 442, year: 2026 },
     // OCCUPATION
-    { category: "OCCUPATION", label: "Petani", value: 650, year: 2025 },
-    { category: "OCCUPATION", label: "Pedagang", value: 380, year: 2025 },
-    { category: "OCCUPATION", label: "PNS/TNI/Polri", value: 210, year: 2025 },
-    { category: "OCCUPATION", label: "Swasta", value: 920, year: 2025 },
-    { category: "OCCUPATION", label: "Wirausaha", value: 450, year: 2025 },
-    { category: "OCCUPATION", label: "Buruh", value: 480, year: 2025 },
-    { category: "OCCUPATION", label: "Lainnya", value: 431, year: 2025 },
+    { category: "OCCUPATION", label: "Petani", value: 1800, year: 2026 },
+    { category: "OCCUPATION", label: "Peternak", value: 800, year: 2026 },
+    { category: "OCCUPATION", label: "Pedagang", value: 320, year: 2026 },
+    { category: "OCCUPATION", label: "Buruh", value: 250, year: 2026 },
+    { category: "OCCUPATION", label: "Wiraswasta", value: 180, year: 2026 },
+    { category: "OCCUPATION", label: "ASN/TNI/POLRI", value: 22, year: 2026 },
     // RELIGION
-    { category: "RELIGION", label: "Islam", value: 4200, year: 2025 },
-    { category: "RELIGION", label: "Kristen", value: 180, year: 2025 },
-    { category: "RELIGION", label: "Katolik", value: 95, year: 2025 },
-    { category: "RELIGION", label: "Hindu", value: 30, year: 2025 },
-    { category: "RELIGION", label: "Buddha", value: 16, year: 2025 },
+    { category: "RELIGION", label: "Islam", value: 3350, year: 2026 },
+    { category: "RELIGION", label: "Lainnya", value: 22, year: 2026 },
     // AGE
-    { category: "AGE", label: "0-14 tahun", value: 1150, year: 2025 },
-    { category: "AGE", label: "15-29 tahun", value: 1230, year: 2025 },
-    { category: "AGE", label: "30-44 tahun", value: 980, year: 2025 },
-    { category: "AGE", label: "45-59 tahun", value: 720, year: 2025 },
-    { category: "AGE", label: "60+ tahun", value: 441, year: 2025 },
+    { category: "AGE", label: "0-14 tahun", value: 850, year: 2026 },
+    { category: "AGE", label: "15-29 tahun", value: 920, year: 2026 },
+    { category: "AGE", label: "30-44 tahun", value: 780, year: 2026 },
+    { category: "AGE", label: "45-59 tahun", value: 520, year: 2026 },
+    { category: "AGE", label: "60+ tahun", value: 302, year: 2026 },
   ];
 
   for (const stat of statistics) {
@@ -129,54 +126,54 @@ Memasuki era reformasi tahun 1998, Desa Sukamaju mengalami transformasi besar da
       title: "Pembangunan Jalan Desa Sepanjang 2 Km Selesai Dikerjakan",
       slug: "pembangunan-jalan-desa-sepanjang-2-km-selesai",
       excerpt: "Proyek pembangunan jalan desa yang didanai dari Dana Desa tahun 2025 telah berhasil diselesaikan tepat waktu.",
-      content: `Desa Sukamaju kembali menorehkan prestasi dalam pembangunan infrastruktur. Proyek pembangunan jalan desa sepanjang 2 kilometer yang menghubungkan dusun Cibatu dengan pusat desa telah berhasil diselesaikan lebih cepat dari jadwal yang direncanakan.
+      content: `Desa Pojok Klitih kembali menorehkan prestasi dalam pembangunan infrastruktur. Proyek pembangunan jalan desa sepanjang 2 kilometer yang menghubungkan dusun Klitih dengan pusat desa telah berhasil diselesaikan lebih cepat dari jadwal yang direncanakan.
 
-Kepala Desa H. Ahmad Fauzi mengatakan bahwa pembangunan jalan ini merupakan salah satu prioritas utama dalam Rencana Pembangunan Jangka Menengah Desa (RPJMDes) 2021-2026. "Kami sangat bersyukur proyek ini bisa selesai dengan baik. Ini adalah bukti nyata komitmen pemerintah desa untuk meningkatkan kualitas hidup warga," ujar Kades.
+Kepala Desa mengatakan bahwa pembangunan jalan ini merupakan salah satu prioritas utama dalam Rencana Pembangunan Jangka Menengah Desa (RPJMDes) 2021-2026. "Kami sangat bersyukur proyek ini bisa selesai dengan baik. Ini adalah bukti nyata komitmen pemerintah desa untuk meningkatkan kualitas hidup warga," ujarnya.
 
 Jalan dengan lebar 4 meter dan panjang 2 kilometer ini dikerjakan dengan menggunakan beton bertulang, sehingga diharapkan dapat bertahan selama minimal 20 tahun. Biaya pembangunan sebesar Rp 850 juta bersumber dari Dana Desa tahun 2025 dan swadaya masyarakat.
 
-Dengan selesainya pembangunan jalan ini, akses warga dusun Cibatu menuju pusat desa kini menjadi lebih mudah dan aman, terutama pada musim hujan ketika jalan lama sering tergenang air.`,
+Dengan selesainya pembangunan jalan ini, akses warga dusun Klitih menuju pusat desa kini menjadi lebih mudah dan aman, terutama pada musim hujan ketika jalan lama sering tergenang air.`,
       category: "INFRASTRUKTUR",
       isPublished: true,
       publishedAt: new Date("2025-12-15"),
-      image: "https://picsum.photos/seed/jalan/800/450",
+      image: "/images/gambar6.png",
       authorId: operator.id,
     },
     {
-      title: "Posyandu Desa Sukamaju Terima Penghargaan Terbaik Tingkat Kabupaten",
-      slug: "posyandu-desa-sukamaju-terima-penghargaan-terbaik",
-      excerpt: "Posyandu Melati Desa Sukamaju berhasil meraih penghargaan Posyandu Terbaik tingkat Kabupaten Bogor tahun 2025.",
-      content: `Kabar membanggakan datang dari Posyandu Melati Desa Sukamaju. Posyandu yang aktif melayani warga sejak tahun 2010 ini berhasil meraih penghargaan sebagai Posyandu Terbaik tingkat Kabupaten Bogor dalam rangka Hari Kesehatan Nasional 2025.
+      title: "Posyandu Desa Pojok Klitih Terima Penghargaan Terbaik Tingkat Kabupaten",
+      slug: "posyandu-desa-pojok-klitih-terima-penghargaan-terbaik",
+      excerpt: "Posyandu Melati Desa Pojok Klitih berhasil meraih penghargaan Posyandu Terbaik tingkat Kabupaten Jombang tahun 2025.",
+      content: `Kabar membanggakan datang dari Posyandu Melati Desa Pojok Klitih. Posyandu yang aktif melayani warga sejak tahun 2010 ini berhasil meraih penghargaan sebagai Posyandu Terbaik tingkat Kabupaten Jombang dalam rangka Hari Kesehatan Nasional 2025.
 
-Penghargaan diserahkan langsung oleh Bupati Bogor kepada Ketua Posyandu Ibu Sari Dewi di Aula Pemkab Bogor. Penilaian dilakukan berdasarkan berbagai indikator, termasuk kelengkapan fasilitas, kualitas pelayanan, cakupan balita, dan inovasi program.
+Penghargaan diserahkan langsung oleh Bupati Jombang kepada Ketua Posyandu Ibu Sari Dewi di Aula Pemkab Jombang. Penilaian dilakukan berdasarkan berbagai indikator, termasuk kelengkapan fasilitas, kualitas pelayanan, cakupan balita, dan inovasi program.
 
-Salah satu inovasi yang menjadi keunggulan Posyandu Melati adalah program "Cegah Stunting dengan Gizi Lokal" yang memanfaatkan bahan pangan lokal untuk memenuhi kebutuhan gizi balita. Program ini terbukti berhasil menurunkan angka stunting di Desa Sukamaju dari 18% menjadi 8% dalam waktu dua tahun.`,
+Salah satu inovasi yang menjadi keunggulan Posyandu Melati adalah program "Cegah Stunting dengan Gizi Lokal" yang memanfaatkan bahan pangan lokal untuk memenuhi kebutuhan gizi balita. Program ini terbukti berhasil menurunkan angka stunting di Desa Pojok Klitih dari 18% menjadi 8% dalam waktu dua tahun.`,
       category: "KESEHATAN",
       isPublished: true,
       publishedAt: new Date("2025-12-10"),
-      image: "https://picsum.photos/seed/posyandu/800/450",
+      image: "/images/gambar7.jpg",
       authorId: operator.id,
     },
     {
-      title: "UMKM Desa Sukamaju Berhasil Tembus Pasar Ekspor ke Malaysia",
-      slug: "umkm-desa-sukamaju-tembus-pasar-ekspor-malaysia",
-      excerpt: "Kelompok pengrajin batik Desa Sukamaju berhasil melakukan ekspor perdana batik motif khas desa ke Malaysia.",
-      content: `Prestasi membanggakan diraih oleh kelompok pengrajin batik Desa Sukamaju. Untuk pertama kalinya, produk batik dengan motif khas desa berhasil diekspor ke Malaysia dengan order senilai Rp 120 juta.
+      title: "UMKM Desa Pojok Klitih Berhasil Tembus Pasar Ekspor ke Malaysia",
+      slug: "umkm-desa-pojok-klitih-tembus-pasar-ekspor-malaysia",
+      excerpt: "Kelompok pengrajin batik Desa Pojok Klitih berhasil melakukan ekspor perdana batik motif khas desa ke Malaysia.",
+      content: `Prestasi membanggakan diraih oleh kelompok pengrajin batik Desa Pojok Klitih. Untuk pertama kalinya, produk batik dengan motif khas desa berhasil diekspor ke Malaysia dengan order senilai Rp 120 juta.
 
-Produk batik motif "Padi Menguning" khas Desa Sukamaju berhasil menarik minat buyer dari Malaysia setelah dipromosikan melalui platform digital dan pameran virtual ASEAN Craft Festival 2025. Kelompok pengrajin yang beranggotakan 25 orang ibu rumah tangga ini kini mendapatkan pesanan rutin setiap bulannya.
+Produk batik motif "Padi Menguning" khas Desa Pojok Klitih berhasil menarik minat buyer dari Malaysia setelah dipromosikan melalui platform digital dan pameran virtual ASEAN Craft Festival 2025. Kelompok pengrajin yang beranggotakan 25 orang ibu rumah tangga ini kini mendapatkan pesanan rutin setiap bulannya.
 
-Kepala Desa H. Ahmad Fauzi mengungkapkan rasa bangganya atas pencapaian ini. "Ini membuktikan bahwa produk lokal kita memiliki kualitas internasional. Ke depan, kita akan terus mendorong dan mendukung UMKM desa untuk berkembang lebih jauh," katanya.`,
+Kepala Desa mengungkapkan rasa bangganya atas pencapaian ini. "Ini membuktikan bahwa produk lokal kita memiliki kualitas internasional. Ke depan, kita akan terus mendorong dan mendukung UMKM desa untuk berkembang lebih jauh," katanya.`,
       category: "UMKM",
       isPublished: true,
       publishedAt: new Date("2025-12-05"),
-      image: "https://picsum.photos/seed/batik/800/450",
+      image: "/images/gambar8.jpeg",
       authorId: operator.id,
     },
     {
       title: "Musrenbang Desa 2026: Warga Usulkan Program Digitalisasi Pelayanan",
       slug: "musrenbang-desa-2026-program-digitalisasi",
       excerpt: "Musyawarah Rencana Pembangunan Desa tahun 2026 berlangsung meriah dengan berbagai usulan inovatif dari warga.",
-      content: `Musyawarah Rencana Pembangunan (Musrenbang) Desa Sukamaju untuk tahun anggaran 2026 telah digelar di Balai Desa dengan dihadiri oleh seluruh perangkat desa, tokoh masyarakat, dan perwakilan warga dari 6 RW.
+      content: `Musyawarah Rencana Pembangunan (Musrenbang) Desa Pojok Klitih untuk tahun anggaran 2026 telah digelar di Balai Desa dengan dihadiri oleh seluruh perangkat desa, tokoh masyarakat, dan perwakilan warga.
 
 Dalam musyawarah yang berlangsung selama setengah hari tersebut, berbagai usulan disampaikan oleh warga. Yang paling menonjol adalah usulan program digitalisasi pelayanan publik desa, termasuk pembangunan website desa modern, aplikasi pengaduan digital, dan sistem layanan surat online.
 
@@ -184,29 +181,29 @@ Usulan lainnya yang mendapat banyak dukungan antara lain: pembangunan gedung ser
       category: "PEMERINTAHAN",
       isPublished: true,
       publishedAt: new Date("2025-11-28"),
-      image: "https://picsum.photos/seed/musrenbang/800/450",
+      image: "/images/gambar9.jpg",
       authorId: operator.id,
     },
     {
       title: "Festival Panen Raya 2025 Meriah dengan Ratusan Pengunjung",
       slug: "festival-panen-raya-2025-meriah",
-      excerpt: "Festival Panen Raya tahunan Desa Sukamaju sukses digelar dengan berbagai pertunjukan seni budaya dan pameran produk lokal.",
-      content: `Festival Panen Raya Desa Sukamaju 2025 sukses digelar selama tiga hari berturut-turut di lapangan desa. Festival yang telah menjadi agenda tahunan ini berhasil menarik ratusan pengunjung dari berbagai daerah di Kabupaten Bogor.
+      excerpt: "Festival Panen Raya tahunan Desa Pojok Klitih sukses digelar dengan berbagai pertunjukan seni budaya dan pameran produk lokal.",
+      content: `Festival Panen Raya Desa Pojok Klitih 2025 sukses digelar selama tiga hari berturut-turut di lapangan desa. Festival yang telah menjadi agenda tahunan ini berhasil menarik ratusan pengunjung dari berbagai daerah di Kabupaten Jombang.
 
-Acara dibuka oleh Kepala Desa H. Ahmad Fauzi dengan penampilan tari tradisional dan prosesi syukuran panen. Selama tiga hari, berbagai pertunjukan seni dan budaya ditampilkan, mulai dari wayang golek, pencak silat, hingga hiburan modern.
+Acara dibuka oleh Kepala Desa dengan penampilan tari tradisional dan prosesi syukuran panen. Selama tiga hari, berbagai pertunjukan seni dan budaya ditampilkan, mulai dari wayang, pencak silat, hingga hiburan modern.
 
 Pameran produk UMKM lokal menjadi daya tarik tersendiri, dengan lebih dari 50 stand yang menampilkan berbagai produk unggulan desa seperti batik, kerajinan bambu, produk pertanian organik, dan kuliner khas desa.`,
       category: "KEGIATAN",
       isPublished: true,
       publishedAt: new Date("2025-11-20"),
-      image: "https://picsum.photos/seed/festival/800/450",
+      image: "/images/gambar10.webp",
       authorId: operator.id,
     },
     {
       title: "Program Beasiswa Desa untuk 10 Mahasiswa Berprestasi",
       slug: "program-beasiswa-desa-10-mahasiswa-berprestasi",
-      excerpt: "Pemerintah Desa Sukamaju meluncurkan program beasiswa untuk mendukung putra-putri desa yang berprestasi namun kurang mampu.",
-      content: `Pemerintah Desa Sukamaju resmi meluncurkan Program Beasiswa Desa Sukamaju (PBDS) untuk tahun akademik 2025/2026. Program ini bertujuan untuk mendukung akses pendidikan tinggi bagi putra-putri desa yang berprestasi namun mengalami kendala ekonomi.
+      excerpt: "Pemerintah Desa Pojok Klitih meluncurkan program beasiswa untuk mendukung putra-putri desa yang berprestasi namun kurang mampu.",
+      content: `Pemerintah Desa Pojok Klitih resmi meluncurkan Program Beasiswa Desa (PBD) untuk tahun akademik 2025/2026. Program ini bertujuan untuk mendukung akses pendidikan tinggi bagi putra-putri desa yang berprestasi namun mengalami kendala ekonomi.
 
 Sebanyak 10 penerima beasiswa terpilih melalui proses seleksi ketat yang meliputi penilaian prestasi akademik, kondisi ekonomi keluarga, dan wawancara. Para penerima akan mendapatkan bantuan biaya kuliah sebesar Rp 5 juta per semester selama maksimal 4 tahun.
 
@@ -214,7 +211,7 @@ Kepala Desa menjelaskan bahwa program ini merupakan bentuk investasi jangka panj
       category: "PENDIDIKAN",
       isPublished: true,
       publishedAt: new Date("2025-11-15"),
-      image: "https://picsum.photos/seed/beasiswa/800/450",
+      image: "/images/gambar11.jfif",
       authorId: operator.id,
     },
   ];
@@ -230,7 +227,7 @@ Kepala Desa menjelaskan bahwa program ini merupakan bentuk investasi jangka panj
     {
       title: "Rapat Koordinasi Perangkat Desa",
       description: "Rapat koordinasi bulanan seluruh perangkat desa untuk evaluasi program dan perencanaan kegiatan bulan depan.",
-      location: "Kantor Desa Sukamaju",
+      location: "Kantor Desa Pojok Klitih",
       date: new Date("2026-01-08"),
       startTime: "09:00",
       endTime: "12:00",
@@ -248,7 +245,7 @@ Kepala Desa menjelaskan bahwa program ini merupakan bentuk investasi jangka panj
     {
       title: "Gotong Royong Kebersihan Desa",
       description: "Kegiatan gotong royong membersihkan lingkungan desa, selokan, dan fasilitas umum bersama seluruh warga.",
-      location: "Seluruh wilayah Desa Sukamaju",
+      location: "Seluruh wilayah Desa Pojok Klitih",
       date: new Date("2026-01-15"),
       startTime: "07:00",
       endTime: "10:00",
@@ -266,7 +263,7 @@ Kepala Desa menjelaskan bahwa program ini merupakan bentuk investasi jangka panj
     {
       title: "Musyawarah Desa Pertanggungjawaban APBDes 2025",
       description: "Musyawarah desa untuk menyampaikan pertanggungjawaban penggunaan Anggaran Pendapatan dan Belanja Desa tahun 2025.",
-      location: "Balai Desa Sukamaju",
+      location: "Balai Desa Pojok Klitih",
       date: new Date("2026-01-25"),
       startTime: "09:00",
       endTime: "13:00",
@@ -275,7 +272,7 @@ Kepala Desa menjelaskan bahwa program ini merupakan bentuk investasi jangka panj
     {
       title: "Pemeriksaan Kesehatan Gratis Lansia",
       description: "Pemeriksaan kesehatan gratis untuk warga lansia meliputi cek tekanan darah, gula darah, kolesterol, dan konsultasi dokter.",
-      location: "Puskesdes Desa Sukamaju",
+      location: "Puskesdes Desa Pojok Klitih",
       date: new Date("2026-02-05"),
       startTime: "08:00",
       endTime: "12:00",
@@ -291,18 +288,18 @@ Kepala Desa menjelaskan bahwa program ini merupakan bentuk investasi jangka panj
   // GALERI
   // ==========================================
   const galleries = [
-    { title: "Kantor Desa Sukamaju", url: "https://picsum.photos/seed/kantor/800/600", category: "Fasilitas" },
-    { title: "Sawah Desa yang Subur", url: "https://picsum.photos/seed/sawah/800/600", category: "Pertanian" },
-    { title: "Festival Budaya 2025", url: "https://picsum.photos/seed/budaya/800/600", category: "Kegiatan" },
-    { title: "Posyandu Balita", url: "https://picsum.photos/seed/posyandu2/800/600", category: "Kesehatan" },
-    { title: "Pelatihan UMKM Digital", url: "https://picsum.photos/seed/umkm/800/600", category: "UMKM" },
-    { title: "Pemandangan Alam Desa", url: "https://picsum.photos/seed/alam/800/600", category: "Wisata" },
-    { title: "Gotong Royong Warga", url: "https://picsum.photos/seed/gotongroyong/800/600", category: "Kegiatan" },
-    { title: "Jembatan Desa Baru", url: "https://picsum.photos/seed/jembatan/800/600", category: "Infrastruktur" },
-    { title: "Produk Kerajinan Lokal", url: "https://picsum.photos/seed/kerajinan/800/600", category: "UMKM" },
-    { title: "Upacara Kemerdekaan", url: "https://picsum.photos/seed/upacara/800/600", category: "Kegiatan" },
-    { title: "Embung Desa", url: "https://picsum.photos/seed/embung/800/600", category: "Fasilitas" },
-    { title: "Taman Bermain Anak", url: "https://picsum.photos/seed/taman/800/600", category: "Fasilitas" },
+    { title: "Kantor Desa Pojok Klitih", url: "/images/gambar3.jfif", category: "Fasilitas" },
+    { title: "Sawah Desa yang Subur", url: "/images/gambar2.jfif", category: "Pertanian" },
+    { title: "Festival Budaya 2025", url: "/images/gambar10.webp", category: "Kegiatan" },
+    { title: "Posyandu Balita", url: "/images/gambar7.jpg", category: "Kesehatan" },
+    { title: "Pelatihan UMKM Digital", url: "/images/gambar13.jpg", category: "UMKM" },
+    { title: "Pemandangan Alam Desa", url: "/images/gambar14.jpg", category: "Wisata" },
+    { title: "Gotong Royong Warga", url: "/images/gambar1.jfif", category: "Kegiatan" },
+    { title: "Jembatan Desa Baru", url: "/images/gambar6.png", category: "Infrastruktur" },
+    { title: "Produk Kerajinan Lokal", url: "/images/gambar8.jpeg", category: "UMKM" },
+    { title: "Upacara Kemerdekaan", url: "/images/gambar5.jfif", category: "Kegiatan" },
+    { title: "Embung Desa", url: "/images/gambar15.jpg", category: "Fasilitas" },
+    { title: "Pertemuan Musrenbang", url: "/images/gambar9.jpg", category: "Fasilitas" },
   ];
 
   for (const item of galleries) {
@@ -314,58 +311,49 @@ Kepala Desa menjelaskan bahwa program ini merupakan bentuk investasi jangka panj
   // ==========================================
   const potentials = [
     {
-      title: "Curug Sukamaju",
-      slug: "curug-sukamaju",
-      description: "Air terjun setinggi 15 meter dengan kolam alami yang jernih. Dikelilingi hutan tropis yang asri, menjadi destinasi wisata alam favorit warga Bogor dan sekitarnya. Tersedia area camping, warung makan, dan toilet umum.",
-      category: "WISATA",
-      image: "https://picsum.photos/seed/curug/800/600",
-      location: "Dusun Cibatu, Desa Sukamaju",
-      contact: "0812-3456-7890",
-    },
-    {
-      title: "Kebun Strawberry Organik",
-      slug: "kebun-strawberry-organik",
-      description: "Perkebunan strawberry organik seluas 3 hektar yang dikelola oleh Kelompok Tani Maju Bersama. Pengunjung dapat memetik langsung buah segar. Tersedia paket wisata agro dan edukasi pertanian organik.",
+      title: "Sektor Pertanian Unggulan",
+      slug: "sektor-pertanian-unggulan",
+      description: "Desa Pojok Klitih memiliki potensi pertanian yang sangat kaya, meliputi tanaman pangan seperti padi, jagung, palawija, serta berbagai produk hortikultura yang dikelola secara tekun oleh mayoritas penduduk desa.",
       category: "PERTANIAN",
-      image: "https://picsum.photos/seed/strawberry/800/600",
-      location: "RW 04, Desa Sukamaju",
-      contact: "0813-5678-9012",
+      image: "/images/gambar2.jfif",
+      location: "Lahan Pertanian Desa Pojok Klitih",
+      contact: "-",
     },
     {
-      title: "Batik Sukamaju",
-      slug: "batik-sukamaju",
-      description: "Kelompok pengrajin batik yang telah menghasilkan motif-motif khas Sukamaju sejak 1985. Produk telah diekspor ke Malaysia dan Singapura. Tersedia workshop membatik untuk wisatawan dengan pemandu berpengalaman.",
-      category: "KERAJINAN",
-      image: "https://picsum.photos/seed/batik2/800/600",
-      location: "Jl. Kerajinan No. 5, Desa Sukamaju",
-      contact: "0814-7890-1234",
-    },
-    {
-      title: "Peternakan Lebah Madu",
-      slug: "peternakan-lebah-madu",
-      description: "Peternakan lebah madu trigona dengan 200 koloni. Produk madu murni tanpa campuran telah bersertifikat BPOM. Tersedia paket eduwisata peternakan lebah dan penjualan langsung madu serta produk turunannya.",
+      title: "Sektor Peternakan Desa",
+      slug: "sektor-peternakan-desa",
+      description: "Peternakan di Desa Pojok Klitih didominasi oleh peternakan rakyat dengan komoditas unggulan berupa sapi, kambing, dan ayam kampung yang menjadi salah satu penopang utama perekonomian masyarakat.",
       category: "PETERNAKAN",
-      image: "https://picsum.photos/seed/madu/800/600",
-      location: "Dusun Mekar, Desa Sukamaju",
-      contact: "0815-2345-6789",
+      image: "/images/gambar12.jfif",
+      location: "Area Peternakan, Desa Pojok Klitih",
+      contact: "-",
     },
     {
-      title: "Warung Kopi Desa",
-      slug: "warung-kopi-desa",
-      description: "Sentra kuliner kopi arabika lokal yang diproses dari biji kopi kebun sendiri. Menggunakan metode pengolahan modern namun tetap mempertahankan cita rasa tradisional. Menjadi UMKM unggulan desa.",
+      title: "UMKM & Industri Rumah Tangga",
+      slug: "umkm-industri-rumah-tangga",
+      description: "Pengembangan usaha mikro di Desa Pojok Klitih berkembang dengan baik, didukung oleh warung-warung kelontong, perdagangan lokal, industri rumah tangga, serta produk-produk olahan pangan khas desa.",
       category: "UMKM",
-      image: "https://picsum.photos/seed/kopi/800/600",
-      location: "Jl. Utama No. 12, Desa Sukamaju",
-      contact: "0816-3456-7890",
+      image: "/images/gambar13.jpg",
+      location: "Sentra UMKM Desa Pojok Klitih",
+      contact: "-",
     },
     {
-      title: "Camping Ground Hutan Pinus",
-      slug: "camping-ground-hutan-pinus",
-      description: "Area camping di tengah hutan pinus dengan view perbukitan yang memukau. Fasilitas lengkap termasuk toilet, area api unggun, dan spot foto instagram-worthy. Kapasitas hingga 100 tenda.",
+      title: "Potensi Sosial Budaya & Kesenian",
+      slug: "potensi-sosial-budaya-kesenian",
+      description: "Kearifan lokal dan budaya tradisional di Desa Pojok Klitih senantiasa dijaga kelestariannya. Hal ini ditunjukkan oleh kuatnya kesenian tradisional Jawa, tradisi keagamaan yang harmonis, serta budaya gotong royong yang tinggi.",
+      category: "KERAJINAN",
+      image: "/images/gambar1.jfif",
+      location: "Pusat Kebudayaan Desa Pojok Klitih",
+      contact: "-",
+    },
+    {
+      title: "Wisata Pedesaan & Edukasi",
+      slug: "wisata-pedesaan-edukasi",
+      description: "Desa Pojok Klitih memiliki potensi besar dalam pengembangan wisata berbasis pedesaan, wisata budaya lokal, serta wisata edukasi pertanian (agro-tourism) yang memanfaatkan keelokan alam pedesaan agraris.",
       category: "WISATA",
-      image: "https://picsum.photos/seed/camping/800/600",
-      location: "Puncak Desa Sukamaju",
-      contact: "0817-4567-8901",
+      image: "/images/gambar14.jpg",
+      location: "Area Eduwisata Desa Pojok Klitih",
+      contact: "-",
     },
   ];
 
@@ -377,16 +365,15 @@ Kepala Desa menjelaskan bahwa program ini merupakan bentuk investasi jangka panj
   // STRUKTUR ORGANISASI
   // ==========================================
   const org = [
-    { name: "H. Ahmad Fauzi, S.Sos", position: "Kepala Desa", order: 1 },
-    { name: "Drs. Hendra Gunawan", position: "Sekretaris Desa", order: 2 },
-    { name: "Siti Aminah, A.Md", position: "Kaur Keuangan", order: 3 },
-    { name: "Rudi Hartono", position: "Kaur Tata Usaha & Umum", order: 4 },
-    { name: "Dewi Kusuma", position: "Kaur Perencanaan", order: 5 },
-    { name: "Asep Supriatna", position: "Kasie Pemerintahan", order: 6 },
-    { name: "Nurul Hidayah", position: "Kasie Kesejahteraan", order: 7 },
-    { name: "Bambang Triyono", position: "Kasie Pelayanan", order: 8 },
-    { name: "Agus Salim", position: "Kepala Dusun Cibatu", order: 9 },
-    { name: "Rina Marlina", position: "Kepala Dusun Mekar", order: 10 },
+    { name: "(Belum ada data)", position: "Kepala Desa", order: 1 },
+    { name: "(Belum ada data)", position: "Sekretaris Desa", order: 2 },
+    { name: "(Belum ada data)", position: "Kaur Tata Usaha & Umum", order: 3 },
+    { name: "(Belum ada data)", position: "Kaur Keuangan", order: 4 },
+    { name: "(Belum ada data)", position: "Kaur Perencanaan", order: 5 },
+    { name: "(Belum ada data)", position: "Kasi Pemerintahan", order: 6 },
+    { name: "(Belum ada data)", position: "Kasi Kesejahteraan", order: 7 },
+    { name: "(Belum ada data)", position: "Kasi Pelayanan", order: 8 },
+    { name: "(Belum ada data)", position: "Kepala Dusun (14 Dusun)", order: 9 },
   ];
 
   for (const item of org) {
@@ -395,9 +382,9 @@ Kepala Desa menjelaskan bahwa program ini merupakan bentuk investasi jangka panj
 
   console.log("✅ Seeding selesai!");
   console.log("\n📋 Login credentials:");
-  console.log("  Super Admin: superadmin@desasukamaju.id / admin123");
-  console.log("  Admin Desa:  admin@desasukamaju.id / admin123");
-  console.log("  Operator:    operator@desasukamaju.id / admin123");
+  console.log("  Super Admin: superadmin@desapojokklitih.id / admin123");
+  console.log("  Admin Desa:  admin@desapojokklitih.id / admin123");
+  console.log("  Operator:    operator@desapojokklitih.id / admin123");
 }
 
 main()

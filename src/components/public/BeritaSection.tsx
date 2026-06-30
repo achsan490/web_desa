@@ -61,7 +61,7 @@ export default function BeritaSection({ news }: { news: NewsItem[] }) {
               Berita <span className="gradient-text">Desa</span>
             </h2>
             <p className="text-gray-500 mt-2">
-              Informasi dan kegiatan terkini dari Desa Sukamaju
+              Informasi dan kegiatan terkini dari Desa Pojok Klitih
             </p>
           </div>
           <Link

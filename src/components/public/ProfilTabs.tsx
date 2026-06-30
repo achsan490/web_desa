@@ -9,6 +9,13 @@ import {
   Target,
   Users,
   Map,
+  Layers,
+  GraduationCap,
+  Building2,
+  HeartPulse,
+  Heart,
+  Milestone,
+  Mountain,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -35,10 +42,11 @@ type OrgMember = {
 };
 
 const tabs = [
-  { id: "sejarah", label: "Sejarah Desa", icon: History },
+  { id: "sejarah", label: "Profil & Sejarah", icon: History },
   { id: "visi-misi", label: "Visi & Misi", icon: Eye },
   { id: "struktur", label: "Struktur Organisasi", icon: Users },
-  { id: "wilayah", label: "Data Wilayah", icon: Map },
+  { id: "wilayah", label: "Wilayah & Lingkungan", icon: Map },
+  { id: "sarana", label: "Sarana & Prasarana", icon: Layers },
 ];
 
 export default function ProfilTabs({
@@ -82,38 +90,68 @@ export default function ProfilTabs({
             transition={{ duration: 0.3 }}
             className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start"
           >
-            <div className="lg:col-span-3">
-              <h2 className="text-2xl font-black text-gray-900 mb-6">
-                Sejarah <span className="gradient-text">Desa Sukamaju</span>
-              </h2>
-              <div className="prose prose-gray max-w-none">
-                {profile.history.split("\n\n").map((para, i) => (
-                  <p key={i} className="text-gray-600 leading-relaxed mb-4">
-                    {para}
-                  </p>
-                ))}
+            <div className="lg:col-span-3 space-y-8">
+              <div>
+                <h2 className="text-2xl font-black text-gray-900 mb-4">
+                  Tentang & Sejarah <span className="gradient-text">Desa Pojok Klitih</span>
+                </h2>
+                <div className="prose prose-gray max-w-none text-gray-650 leading-relaxed space-y-4">
+                  {profile.history.split("\n\n").map((para, i) => (
+                    <p key={i} className="mb-4">
+                      {para}
+                    </p>
+                  ))}
+                </div>
+              </div>
+
+              {/* Motto Desa */}
+              <div className="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-2xl">
+                <h3 className="font-bold text-amber-900 text-xs uppercase tracking-wider mb-1">Motto Desa</h3>
+                <p className="text-amber-850 font-semibold italic text-lg leading-relaxed">
+                  &ldquo;Bersama Membangun Desa yang Maju, Mandiri, Sejahtera, dan Berbudaya.&rdquo;
+                </p>
+              </div>
+
+              {/* Kondisi Sosial */}
+              <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                <h3 className="font-black text-gray-900 text-lg mb-4 flex items-center gap-2">
+                  <Users className="h-5 w-5 text-emerald-600" />
+                  Kondisi Sosial Masyarakat
+                </h3>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-gray-600">
+                  {[
+                    "Budaya gotong royong yang tinggi.",
+                    "Kehidupan masyarakat yang harmonis.",
+                    "Tradisi keagamaan yang masih terjaga.",
+                    "Partisipasi aktif dalam kegiatan kemasyarakatan.",
+                    "Kepedulian terhadap pembangunan desa."
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
             <div className="lg:col-span-2">
               <div className="sticky top-24 space-y-4">
-                {/* Kepala Desa */}
+                {/* Kantor Desa / Balai Desa */}
                 <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl p-6">
-                  <div className="relative w-full aspect-square rounded-xl overflow-hidden mb-4 max-h-64">
+                  <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-4 bg-white/50 border border-emerald-200">
                     <Image
-                      src={profile.kepalaImage || "https://images.unsplash.com/photo-1566753323558-f4e0952af115?w=400&q=80"}
-                      alt={profile.kepalaName}
+                      src="/images/gambar3.jfif"
+                      alt="Balai Desa Pojok Klitih"
                       fill
                       className="object-cover"
                       unoptimized
                     />
                   </div>
-                  <h3 className="font-bold text-gray-900">{profile.kepalaName}</h3>
-                  <p className="text-emerald-600 text-sm font-medium">Kepala Desa</p>
-                  {profile.kepalaQuote && (
-                    <p className="text-gray-600 text-sm mt-3 italic leading-relaxed">
-                      &ldquo;{profile.kepalaQuote}&rdquo;
-                    </p>
-                  )}
+                  <h3 className="font-bold text-gray-900">Kantor Balai Desa</h3>
+                  <p className="text-emerald-600 text-sm font-medium">Pemerintah Desa Pojok Klitih</p>
+                  <p className="text-gray-600 text-sm mt-3 italic leading-relaxed">
+                    &ldquo;Bersama Membangun Desa yang Maju, Mandiri, Sejahtera, dan Berbudaya.&rdquo;
+                  </p>
                 </div>
 
                 {/* Info Desa */}
@@ -121,8 +159,7 @@ export default function ProfilTabs({
                   <h4 className="font-semibold text-gray-900 mb-3 text-sm">Informasi Desa</h4>
                   <div className="space-y-2 text-sm text-gray-600">
                     <div className="flex gap-2"><span className="font-medium w-24 flex-shrink-0">Alamat:</span><span>{profile.address}</span></div>
-                    {profile.phone && <div className="flex gap-2"><span className="font-medium w-24 flex-shrink-0">Telepon:</span><span>{profile.phone}</span></div>}
-                    {profile.email && <div className="flex gap-2"><span className="font-medium w-24 flex-shrink-0">Email:</span><span>{profile.email}</span></div>}
+                    <div className="flex gap-2"><span className="font-medium w-24 flex-shrink-0">Email:</span><span>{profile.email}</span></div>
                   </div>
                 </div>
               </div>
@@ -253,36 +290,257 @@ export default function ProfilTabs({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="max-w-4xl mx-auto"
+            className="space-y-8 max-w-5xl mx-auto"
           >
-            <h2 className="text-2xl font-black text-gray-900 mb-8 text-center">
-              Data <span className="gradient-text">Wilayah Desa</span>
+            <h2 className="text-2xl font-black text-gray-900 text-center">
+              Wilayah & <span className="gradient-text">Kondisi Lingkungan</span>
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {[
-                { label: "Luas Wilayah", value: "234.5 Ha" },
-                { label: "Ketinggian dari Laut", value: "320 mdpl" },
-                { label: "Jumlah Dusun", value: "2 Dusun" },
-                { label: "Jumlah RW", value: "6 RW" },
-                { label: "Jumlah RT", value: "24 RT" },
-                { label: "Batas Utara", value: "Desa Ciawi" },
-                { label: "Batas Selatan", value: "Desa Bojong" },
-                { label: "Batas Barat", value: "Desa Bendungan" },
-                { label: "Batas Timur", value: "Desa Banjarsari" },
-                { label: "Orbitasi Kecamatan", value: "3 km" },
-                { label: "Orbitasi Kabupaten", value: "45 km" },
-                { label: "Orbitasi Provinsi", value: "85 km" },
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  className="flex items-center justify-between bg-white rounded-xl p-4 border border-gray-100 shadow-sm"
-                >
-                  <span className="text-gray-600 text-sm">{item.label}</span>
-                  <span className="font-semibold text-emerald-700 text-sm">
-                    {item.value}
-                  </span>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {/* Profil Wilayah */}
+              <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                  <Map className="h-5 w-5 text-emerald-600" />
+                  Profil Wilayah
+                </h3>
+                <div className="space-y-2.5 text-xs text-gray-650">
+                  {[
+                    { label: "Nama Desa", value: "Desa Pojok Klitih" },
+                    { label: "Kecamatan", value: "Plandaan" },
+                    { label: "Kabupaten", value: "Jombang" },
+                    { label: "Provinsi", value: "Jawa Timur" },
+                    { label: "Negara", value: "Indonesia" },
+                    { label: "Kode Pos", value: "61456" },
+                    { label: "Karakter Wilayah", value: "Pedesaan / Agraris" },
+                    { label: "Topografi", value: "Dataran Rendah" },
+                    { label: "Ketinggian", value: "±44 mdpl" },
+                    { label: "Luas Kecamatan", value: "96,79 km²" },
+                    { label: "Jumlah Desa", value: "13 desa di Kecamatan" },
+                  ].map((item) => (
+                    <div key={item.label} className="flex justify-between py-1 border-b border-gray-50 last:border-0">
+                      <span className="text-gray-500 font-medium">{item.label}</span>
+                      <span className="font-semibold text-gray-800">{item.value}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+
+              {/* Batas Wilayah */}
+              <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex flex-col justify-between">
+                <div>
+                  <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <Layers className="h-5 w-5 text-emerald-600" />
+                    Batas Wilayah
+                  </h3>
+                  <div className="space-y-3 text-xs mb-6">
+                    {[
+                      { label: "Utara", value: "Kabupaten Bojonegoro" },
+                      { label: "Selatan", value: "Kecamatan Megaluh" },
+                      { label: "Timur", value: "Kecamatan Ploso" },
+                      { label: "Barat", value: "Kabupaten Nganjuk" },
+                    ].map((item) => (
+                      <div key={item.label} className="flex justify-between py-1.5 border-b border-gray-50 last:border-0">
+                        <span className="text-gray-500 font-medium">{item.label}</span>
+                        <span className="font-semibold text-emerald-700">{item.value}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <h3 className="font-bold text-gray-900 mb-3 pt-3 border-t border-gray-100 flex items-center gap-2">
+                    <Mountain className="h-5 w-5 text-emerald-600" />
+                    Kondisi Lingkungan
+                  </h3>
+                  <ul className="space-y-1.5 text-xs text-gray-600 list-disc list-inside">
+                    <li>Lahan pertanian yang luas</li>
+                    <li>Area perkebunan rakyat</li>
+                    <li>Permukiman pedesaan</li>
+                    <li>Saluran irigasi pertanian</li>
+                    <li>Potensi konservasi alam</li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Peta Wilayah */}
+              <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex flex-col justify-between">
+                <div>
+                  <h3 className="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <Map className="h-5 w-5 text-emerald-600" />
+                    Peta Administrasi
+                  </h3>
+                  <div className="relative w-full aspect-square max-h-52 rounded-xl overflow-hidden mb-3 border border-gray-100 bg-gray-50">
+                    <Image
+                      src="/images/gambar4.jfif"
+                      alt="Peta Administrasi Jombang Plandaan"
+                      fill
+                      className="object-contain"
+                      unoptimized
+                    />
+                  </div>
+                  <p className="text-[10px] text-gray-400 italic text-center leading-normal">
+                    Peta Kecamatan Plandaan, Kabupaten Jombang
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Google Maps Iframe */}
+            <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+              <h3 className="font-bold text-gray-950 text-sm mb-4">Peta Lokasi Interaktif</h3>
+              <div className="w-full h-80 rounded-xl overflow-hidden border border-gray-150">
+                <iframe
+                  src="https://maps.google.com/maps?q=Klitih,%20Plandaan,%20Jombang&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Peta Desa Pojok Klitih"
+                />
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        {activeTab === "sarana" && (
+          <motion.div
+            key="sarana"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="space-y-8 max-w-5xl mx-auto"
+          >
+            <h2 className="text-2xl font-black text-gray-900 text-center">
+              Sarana & <span className="gradient-text">Prasarana Desa</span>
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Pemerintahan */}
+              <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4">
+                  <Building2 className="h-5 w-5" />
+                </div>
+                <h3 className="font-bold text-gray-900 mb-3 text-base">Sarana Pemerintahan</h3>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0" />
+                    <span>Kantor Desa</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0" />
+                    <span>Balai Pertemuan Desa</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0" />
+                    <span>Pos Kamling</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Pendidikan */}
+              <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
+                  <GraduationCap className="h-5 w-5" />
+                </div>
+                <h3 className="font-bold text-gray-900 mb-3 text-base">Pendidikan & Sekolah</h3>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0" />
+                    <span>PAUD / TK</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0" />
+                    <span>Sekolah Dasar (SD) / MI</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0" />
+                    <span>Sekolah Menengah Pertama (SMP)</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0" />
+                    <span>Pondok Pesantren</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0" />
+                    <span>Lembaga Pendidikan Nonformal</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Kesehatan */}
+              <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center mb-4">
+                  <HeartPulse className="h-5 w-5" />
+                </div>
+                <h3 className="font-bold text-gray-900 mb-3 text-base">Sarana Kesehatan</h3>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-rose-500 flex-shrink-0" />
+                    <span>Posyandu</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-rose-500 flex-shrink-0" />
+                    <span>Poskesdes</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-rose-500 flex-shrink-0" />
+                    <span>Puskesmas Kecamatan Plandaan</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Keagamaan */}
+              <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-4">
+                  <Heart className="h-5 w-5" />
+                </div>
+                <h3 className="font-bold text-gray-900 mb-3 text-base">Sarana Keagamaan</h3>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0" />
+                    <span>Masjid</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0" />
+                    <span>Mushola</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0" />
+                    <span>Madrasah Diniyah</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Infrastruktur */}
+              <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm md:col-span-2 lg:col-span-2">
+                <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-4">
+                  <Milestone className="h-5 w-5" />
+                </div>
+                <h3 className="font-bold text-gray-900 mb-3 text-base">Sarana Infrastruktur</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-gray-600">
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0" />
+                    <span>Jalan desa</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0" />
+                    <span>Jalan lingkungan</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0" />
+                    <span>Jembatan</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0" />
+                    <span>Saluran irigasi pertanian</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-purple-500 flex-shrink-0" />
+                    <span>Lampu penerangan jalan</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
         )}

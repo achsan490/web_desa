@@ -12,9 +12,9 @@ import MapsSection from "@/components/public/MapsSection";
 import CTASection from "@/components/public/CTASection";
 
 export const metadata: Metadata = {
-  title: "Beranda — Website Resmi Desa Sukamaju",
+  title: "Beranda — Website Resmi Desa Pojok Klitih",
   description:
-    "Website resmi Desa Sukamaju, Kecamatan Ciawi, Kabupaten Bogor. Informasi desa, layanan surat online, berita, agenda, galeri, dan potensi desa.",
+    "Website resmi Desa Pojok Klitih, Kecamatan Plandaan, Kabupaten Jombang. Informasi desa, layanan surat online, berita, agenda, galeri, dan potensi desa.",
 };
 
 export const revalidate = 300; // Revalidate setiap 5 menit
@@ -61,9 +61,9 @@ async function getData() {
 export default async function HomePage() {
   const { news, agenda, galleries, potentials, profile } = await getData();
 
-  const kepalaName = profile?.kepalaName || "H. Ahmad Fauzi, S.Sos";
+  const kepalaName = profile?.kepalaName || "Pemerintah Desa Pojok Klitih";
   const kepalaImage = profile?.kepalaImage || null;
-  const kepalaQuote = profile?.kepalaQuote || "Bersama warga, kita wujudkan Desa Sukamaju yang maju, mandiri, dan sejahtera. Setiap langkah pembangunan adalah wujud nyata dari komitmen kita untuk masa depan yang lebih baik.";
+  const kepalaQuote = profile?.kepalaQuote || "Bersama Membangun Desa yang Maju, Mandiri, Sejahtera, dan Berbudaya.";
 
   return (
     <>

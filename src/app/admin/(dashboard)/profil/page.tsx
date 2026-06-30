@@ -11,16 +11,16 @@ export default async function AdminProfilPage() {
     profile = await db.villageProfile.create({
       data: {
         id: "village-profile-1",
-        history: "Sejarah Desa Sukamaju...",
-        vision: "Visi Desa Sukamaju...",
-        mission: "Misi Desa Sukamaju...",
-        kepalaName: "H. Ahmad Fauzi, S.Sos",
-        kepalaImage: null,
-        kepalaQuote: "Membangun bersama warga.",
-        address: "Jl. Raya Sukamaju No. 1",
-        phone: "(0251) 123456",
-        email: "desasukamaju@gmail.com",
-        whatsapp: "628123456789",
+        history: "Sejarah Desa Pojok Klitih...",
+        vision: "Visi Desa Pojok Klitih...",
+        mission: "Misi Desa Pojok Klitih...",
+        kepalaName: "Pemerintah Desa Pojok Klitih",
+        kepalaImage: "/images/gambar5.jfif",
+        kepalaQuote: "Bersama Membangun Desa yang Maju, Mandiri, Sejahtera, dan Berbudaya.",
+        address: "Kantor Desa Pojok Klitih, Kecamatan Plandaan, Kabupaten Jombang, Jawa Timur 61456",
+        phone: "-",
+        email: "desapojokklitih@gmail.com",
+        whatsapp: "",
       },
     });
   }

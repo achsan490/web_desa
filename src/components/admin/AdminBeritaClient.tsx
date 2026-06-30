@@ -394,7 +394,7 @@ export default function AdminBeritaClient({ initialNews }: { initialNews: NewsIt
                   id="berita-title"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                  placeholder="Contoh: Desa Sukamaju Raih Penghargaan Nasional"
+                  placeholder="Contoh: Desa Pojok Klitih Raih Penghargaan Nasional"
                   className="form-input"
                   required
                 />

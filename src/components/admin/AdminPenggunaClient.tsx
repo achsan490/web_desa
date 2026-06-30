@@ -330,7 +330,7 @@ export default function AdminPenggunaClient({
                   id="user-email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Contoh: budi@desasukamaju.go.id"
+                  placeholder="Contoh: budi@desapojokklitih.go.id"
                   className="form-input"
                   required
                 />

@@ -25,7 +25,7 @@ export default function MapsSection() {
             Temukan <span className="gradient-text">Lokasi Kami</span>
           </h2>
           <p className="text-gray-500 mt-2">
-            Desa Sukamaju, Kecamatan Ciawi, Kabupaten Bogor, Jawa Barat
+            Desa Pojok Klitih, Kecamatan Plandaan, Kabupaten Jombang, Jawa Timur
           </p>
         </motion.div>
 
@@ -42,7 +42,7 @@ export default function MapsSection() {
                 icon: MapPin,
                 title: "Alamat Kantor",
                 content:
-                  "Jl. Raya Sukamaju No. 1, Kecamatan Ciawi, Kabupaten Bogor, Jawa Barat 16730",
+                  "Kantor Desa Pojok Klitih, Kecamatan Plandaan, Kabupaten Jombang, Jawa Timur 61456",
                 color: "bg-emerald-100 text-emerald-600",
               },
               {
@@ -88,14 +88,14 @@ export default function MapsSection() {
           >
             <div className="w-full h-80 md:h-96 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.2!2d106.85!3d-6.627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMzYnMzguNyJTIDEwNsKwNTEnMC4wIkU!5e0!3m2!1sid!2sid!4v1234567890"
+                src="https://maps.google.com/maps?q=Klitih,%20Plandaan,%20Jombang&t=&z=13&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Lokasi Desa Sukamaju"
+                title="Lokasi Desa Pojok Klitih"
               />
             </div>
           </motion.div>

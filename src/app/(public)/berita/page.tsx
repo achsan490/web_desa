@@ -9,7 +9,7 @@ import BeritaFilter from "@/components/public/BeritaFilter";
 export const metadata: Metadata = {
   title: "Berita Desa",
   description:
-    "Berita dan informasi terkini dari Desa Sukamaju. Pemerintahan, kesehatan, pendidikan, UMKM, dan kegiatan desa.",
+    "Berita dan informasi terkini dari Desa Pojok Klitih. Pemerintahan, kesehatan, pendidikan, UMKM, dan kegiatan desa.",
 };
 
 export const revalidate = 300;
@@ -98,7 +98,7 @@ export default async function BeritaPage({
             Berita Desa
           </h1>
           <p className="text-emerald-200 text-lg">
-            {total} artikel tersedia · Informasi terkini Desa Sukamaju
+            {total} artikel tersedia · Informasi terkini Desa Pojok Klitih
           </p>
         </div>
       </div>

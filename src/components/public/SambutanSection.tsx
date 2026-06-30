@@ -43,7 +43,7 @@ export default function SambutanSection({ kepalaName, kepalaImage, kepalaQuote }
               {/* Main image */}
               <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl bg-gray-50 flex items-center justify-center">
                 <Image
-                  src={kepalaImage || "https://images.unsplash.com/photo-1566753323558-f4e0952af115?w=600&q=80"}
+                  src={kepalaImage || "/images/gambar5.jfif"}
                   alt={`Kepala Desa - ${kepalaName}`}
                   fill
                   className="object-cover"
@@ -56,7 +56,7 @@ export default function SambutanSection({ kepalaName, kepalaImage, kepalaQuote }
                   {kepalaName}
                 </p>
                 <p className="text-emerald-600 text-xs font-medium">
-                  Kepala Desa Sukamaju
+                  Kepala Desa Pojok Klitih
                 </p>
               </div>
             </div>
@@ -89,7 +89,7 @@ export default function SambutanSection({ kepalaName, kepalaImage, kepalaQuote }
             )}
 
             <p className="text-gray-600 leading-relaxed mb-8">
-              Puji syukur kehadirat Allah SWT atas berkat dan rahmat-Nya, pemerintah Desa Sukamaju terus berkomitmen untuk memberikan pelayanan terbaik kepada seluruh masyarakat. Melalui program-program inovatif dan semangat gotong royong, kami yakin Desa Sukamaju akan terus berkembang menjadi desa yang mandiri dan berdaya saing.
+              Puji syukur kehadirat Allah SWT atas berkat dan rahmat-Nya, pemerintah Desa Pojok Klitih terus berkomitmen untuk memberikan pelayanan terbaik kepada seluruh masyarakat. Melalui program-program inovatif dan semangat gotong royong, kami yakin Desa Pojok Klitih akan terus berkembang menjadi desa yang mandiri, sejahtera, dan berbudaya.
             </p>
 
             {/* Signature */}
@@ -100,7 +100,7 @@ export default function SambutanSection({ kepalaName, kepalaImage, kepalaQuote }
               <div>
                 <p className="font-bold text-gray-900">{kepalaName}</p>
                 <p className="text-sm text-gray-500">
-                  Kepala Desa Sukamaju
+                  Kepala Desa Pojok Klitih
                 </p>
               </div>
             </div>

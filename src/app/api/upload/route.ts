@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
     }
 
     const buffer = Buffer.from(await file.arrayBuffer());
-    const result = await uploadToCloudinary(buffer, "desa-sukamaju");
+    const result = await uploadToCloudinary(buffer, "desa-pojok-klitih");
 
     return NextResponse.json({
       success: true,

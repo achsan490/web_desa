@@ -4,7 +4,7 @@ import KontakForm from "@/components/public/KontakForm";
 
 export const metadata: Metadata = {
   title: "Kontak",
-  description: "Hubungi Desa Sukamaju. Alamat, nomor telepon, email, dan media sosial kami.",
+  description: "Hubungi Desa Pojok Klitih. Alamat, nomor telepon, email, dan media sosial kami.",
 };
 
 export default function KontakPage() {
@@ -26,19 +26,19 @@ export default function KontakPage() {
               {
                 icon: MapPin,
                 title: "Alamat Kantor",
-                content: "Jl. Raya Sukamaju No. 1\nKecamatan Ciawi, Kabupaten Bogor\nJawa Barat 16730",
+                content: "Kantor Desa Pojok Klitih\nKecamatan Plandaan, Kabupaten Jombang\nJawa Timur 61456",
                 color: "bg-emerald-100 text-emerald-600",
               },
               {
                 icon: Phone,
                 title: "Telepon & WhatsApp",
-                content: "(0251) 123456\nWA: 0812-3456-7890",
+                content: "-\nWA: -",
                 color: "bg-blue-100 text-blue-600",
               },
               {
                 icon: Mail,
                 title: "Email",
-                content: "desasukamaju@gmail.com",
+                content: "desapojokklitih@gmail.com",
                 color: "bg-amber-100 text-amber-600",
               },
               {
@@ -50,7 +50,7 @@ export default function KontakPage() {
               {
                 icon: Globe,
                 title: "Media Sosial",
-                content: "Facebook: @desasukamaju\nInstagram: @desasukamaju\nYouTube: Desa Sukamaju Official",
+                content: "Facebook: @desapojokklitih\nInstagram: @desapojokklitih\nYouTube: Desa Pojok Klitih Official",
                 color: "bg-pink-100 text-pink-600",
               },
             ].map((item) => (
@@ -82,12 +82,12 @@ export default function KontakPage() {
             {/* Map */}
             <div className="h-64 rounded-2xl overflow-hidden shadow-lg border border-gray-200">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.2!2d106.85!3d-6.627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMzYnMzguNyJTIDEwNsKwNTEnMC4wIkU!5e0!3m2!1sid!2sid!4v1234567890"
+                src="https://maps.google.com/maps?q=Klitih,%20Plandaan,%20Jombang&t=&z=13&ie=UTF8&iwloc=&output=embed"
                 width="100%" height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
-                title="Lokasi Desa Sukamaju"
+                title="Lokasi Desa Pojok Klitih"
               />
             </div>
 

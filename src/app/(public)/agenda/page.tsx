@@ -6,7 +6,7 @@ import AgendaCalendarClient from "@/components/public/AgendaCalendarClient";
 
 export const metadata: Metadata = {
   title: "Agenda Desa",
-  description: "Jadwal kegiatan dan agenda resmi Desa Sukamaju.",
+  description: "Jadwal kegiatan dan agenda resmi Desa Pojok Klitih.",
 };
 
 export const revalidate = 300;

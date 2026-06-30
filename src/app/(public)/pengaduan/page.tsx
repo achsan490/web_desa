@@ -6,7 +6,7 @@ import { Shield, Clock, CheckCircle } from "lucide-react";
 export const metadata: Metadata = {
   title: "Pengaduan Masyarakat",
   description:
-    "Sampaikan pengaduan Anda kepada pemerintah Desa Sukamaju. Kami berkomitmen untuk menangani setiap pengaduan dengan cepat dan profesional.",
+    "Sampaikan pengaduan Anda kepada pemerintah Desa Pojok Klitih. Kami berkomitmen untuk menangani setiap pengaduan dengan cepat dan profesional.",
 };
 
 export default function PengaduanPage() {
@@ -21,7 +21,7 @@ export default function PengaduanPage() {
           </h1>
           <p className="text-blue-200 text-lg max-w-2xl">
             Kami mendengar Anda. Sampaikan pengaduan untuk membuat Desa
-            Sukamaju lebih baik.
+            Pojok Klitih lebih baik.
           </p>
         </div>
       </div>

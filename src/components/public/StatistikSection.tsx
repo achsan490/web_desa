@@ -2,15 +2,16 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { Users, Home, Grid3X3, Building2 } from "lucide-react";
+import { Users, Home, Map, Mountain } from "lucide-react";
 import { formatNumber } from "@/lib/utils";
 
 const stats = [
   {
     icon: Users,
     label: "Jumlah Penduduk",
-    value: 4521,
+    value: 3372,
     unit: "jiwa",
+    prefix: "",
     color: "from-emerald-500 to-emerald-600",
     bg: "bg-emerald-50",
     iconColor: "text-emerald-600",
@@ -18,26 +19,29 @@ const stats = [
   {
     icon: Home,
     label: "Jumlah KK",
-    value: 1247,
+    value: 900,
     unit: "KK",
+    prefix: "±",
     color: "from-blue-500 to-blue-600",
     bg: "bg-blue-50",
     iconColor: "text-blue-600",
   },
   {
-    icon: Grid3X3,
-    label: "Jumlah RT",
-    value: 24,
-    unit: "RT",
+    icon: Map,
+    label: "Jumlah Dusun",
+    value: 14,
+    unit: "dusun",
+    prefix: "",
     color: "from-amber-500 to-amber-600",
     bg: "bg-amber-50",
     iconColor: "text-amber-600",
   },
   {
-    icon: Building2,
-    label: "Jumlah RW",
-    value: 6,
-    unit: "RW",
+    icon: Mountain,
+    label: "Ketinggian",
+    value: 44,
+    unit: "mdpl",
+    prefix: "±",
     color: "from-purple-500 to-purple-600",
     bg: "bg-purple-50",
     iconColor: "text-purple-600",
@@ -100,12 +104,14 @@ export default function StatistikSection() {
               >
                 <stat.icon className={`h-6 w-6 ${stat.iconColor}`} />
               </div>
-              <div className="text-3xl md:text-4xl font-black text-gray-900 mb-1">
+              <div className="text-2xl md:text-3xl font-black text-gray-900 mb-1 flex items-center justify-center gap-0.5">
+                {stat.prefix && <span className="text-gray-400 font-semibold">{stat.prefix}</span>}
                 <CountUp
                   target={stat.value}
                   duration={2}
                   started={isInView}
                 />
+                <span className="text-xs font-semibold text-gray-500 ml-1">{stat.unit}</span>
               </div>
               <div className="text-xs font-medium text-gray-500 uppercase tracking-wide">
                 {stat.label}

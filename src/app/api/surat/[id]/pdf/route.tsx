@@ -133,11 +133,11 @@ const MyLetterDocument = ({
       <Page size="A4" style={styles.page}>
         {/* Kop Surat */}
         <View style={styles.kopContainer}>
-          <Text style={styles.kopKecil}>Pemerintah Kabupaten Bandung</Text>
-          <Text style={styles.kopKecil}>Kecamatan Ciwidey</Text>
-          <Text style={styles.kopBesar}>Kantor Kepala Desa Sukamaju</Text>
+          <Text style={styles.kopKecil}>Pemerintah Kabupaten Jombang</Text>
+          <Text style={styles.kopKecil}>Kecamatan Plandaan</Text>
+          <Text style={styles.kopBesar}>Kantor Kepala Desa Pojok Klitih</Text>
           <Text style={styles.kopDetail}>
-            Jl. Raya Ciwidey No. 123, Sukamaju, Bandung. Telp: (022) 5928-xxx. Kode Pos 40973
+            Kantor Desa Pojok Klitih, Kecamatan Plandaan, Kabupaten Jombang. Kode Pos 61456
           </Text>
         </View>
 
@@ -149,7 +149,7 @@ const MyLetterDocument = ({
 
         {/* Opening */}
         <Text style={styles.opening}>
-          Yang bertanda tangan di bawah ini, Kepala Desa Sukamaju, Kecamatan Ciwidey, Kabupaten Bandung, menerangkan dengan sebenarnya bahwa:
+          Yang bertanda tangan di bawah ini, Kepala Desa Pojok Klitih, Kecamatan Plandaan, Kabupaten Jombang, menerangkan dengan sebenarnya bahwa:
         </Text>
 
         {/* Table of Applicant Info */}
@@ -178,7 +178,7 @@ const MyLetterDocument = ({
 
         {/* Content detail */}
         <Text style={styles.opening}>
-          Bahwa yang bersangkutan di atas adalah benar warga Desa Sukamaju yang bertempat tinggal di alamat tersebut. Surat keterangan ini diberikan atas permohonan yang bersangkutan untuk keperluan:
+          Bahwa yang bersangkutan di atas adalah benar warga Desa Pojok Klitih yang bertempat tinggal di alamat tersebut. Surat keterangan ini diberikan atas permohonan yang bersangkutan untuk keperluan:
         </Text>
 
         <View style={styles.table}>
@@ -197,10 +197,10 @@ const MyLetterDocument = ({
         {/* Signature */}
         <View style={styles.signatureContainer}>
           <View style={styles.signatureBox}>
-            <Text style={styles.dateText}>Sukamaju, {formatDate(new Date())}</Text>
-            <Text style={styles.roleText}>Kepala Desa Sukamaju</Text>
+            <Text style={styles.dateText}>Pojok Klitih, {formatDate(new Date())}</Text>
+            <Text style={styles.roleText}>Kepala Desa Pojok Klitih</Text>
             <Text style={styles.nameText}>{kepalaName}</Text>
-            <Text style={{ fontSize: 10 }}>NIP. 19780512 200501 1 002</Text>
+            <Text style={{ fontSize: 10 }}>(Tanda Tangan & Cap Resmi)</Text>
           </View>
         </View>
       </Page>

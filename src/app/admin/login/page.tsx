@@ -67,7 +67,7 @@ export default function AdminLoginPage() {
             <h1 className="text-2xl font-black text-gray-900 mb-1">
               Admin Panel
             </h1>
-            <p className="text-gray-500 text-sm">Desa Sukamaju · Masuk ke akun Anda</p>
+            <p className="text-gray-500 text-sm">Desa Pojok Klitih · Masuk ke akun Anda</p>
           </div>
 
           {/* Error Alert */}
@@ -89,7 +89,7 @@ export default function AdminLoginPage() {
                   id="admin-email"
                   {...register("email")}
                   type="email"
-                  placeholder="admin@desasukamaju.id"
+                  placeholder="admin@desapojokklitih.id"
                   className="form-input pl-10"
                   autoComplete="email"
                 />
@@ -156,13 +156,13 @@ export default function AdminLoginPage() {
               🔑 Demo Login:
             </p>
             <div className="space-y-1 text-xs text-gray-500 font-mono">
-              <p>admin@desasukamaju.id / admin123</p>
+              <p>admin@desapojokklitih.id / admin123</p>
             </div>
           </div>
         </div>
 
         <p className="text-center text-sm text-emerald-200/60 mt-6">
-          © {new Date().getFullYear()} Pemerintah Desa Sukamaju
+          © {new Date().getFullYear()} Pemerintah Desa Pojok Klitih
         </p>
       </div>
     </div>
