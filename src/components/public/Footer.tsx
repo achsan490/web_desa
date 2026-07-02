@@ -207,7 +207,7 @@ export default function Footer() {
             © {new Date().getFullYear()} {desaName}. Hak Cipta Dilindungi.
           </p>
           <p className="text-xs text-gray-500 flex items-center gap-1">
-            Dibuat dengan <Heart className="h-3 w-3 text-red-500 fill-red-500" /> oleh San Project & Kelompok 27 KKN Angkatan 2026
+            Dibuat oleh Kelompok 27 KKN Angkatan 2026
           </p>
         </div>
       </div>
