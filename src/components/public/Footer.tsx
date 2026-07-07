@@ -207,7 +207,10 @@ export default function Footer() {
             © {new Date().getFullYear()} {desaName}. Hak Cipta Dilindungi.
           </p>
           <p className="text-xs text-gray-500 flex items-center gap-1">
-            Dibuat oleh Kelompok 27 KKN Angkatan 2026
+            Dibuat dengan <Heart className="h-3 w-3 text-red-500 fill-current animate-pulse mx-0.5" /> oleh{" "}
+            <Link href="/kkn-27" className="text-emerald-400 hover:text-emerald-300 font-semibold transition-colors duration-200">
+              Kelompok 27 KKN Angkatan 2026
+            </Link>
           </p>
         </div>
       </div>
