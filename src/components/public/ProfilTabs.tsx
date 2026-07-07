@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import {
@@ -62,6 +62,19 @@ export default function ProfilTabs({
   org: OrgMember[];
 }) {
   const [activeTab, setActiveTab] = useState("sejarah");
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handlePlay = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+
+  const handlePause = () => {
+    setIsPlaying(false);
+  };
 
   return (
     <div className="container-custom section-padding">
@@ -115,19 +128,47 @@ export default function ProfilTabs({
                   <Play className="h-5 w-5 text-emerald-600 fill-emerald-600/10" />
                   Video Dokumenter Sejarah Desa
                 </h3>
-                <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-sm border border-gray-150 bg-gray-950">
-                  {TIKTOK_VIDEO_ID ? (
-                    <iframe
-                      src={`https://www.tiktok.com/embed/v2/${TIKTOK_VIDEO_ID}`}
-                      className="absolute inset-0 w-full h-full border-none"
-                      allow="encrypted-media; picture-in-picture"
-                      allowFullScreen
-                      title="Video Sejarah Desa Pojok Klitih"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 flex items-center justify-center text-gray-400 text-sm">
-                      Video belum dikonfigurasi
-                    </div>
+                
+                <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-md border border-gray-200 bg-gray-950 group">
+                  <video
+                    ref={videoRef}
+                    src="/videos/sejarah-desa.mp4"
+                    poster="/images/gambar1.jpg"
+                    className="w-full h-full object-cover"
+                    controls={isPlaying}
+                    onPlay={() => setIsPlaying(true)}
+                    onPause={handlePause}
+                    onEnded={handlePause}
+                  />
+                  
+                  {!isPlaying && (
+                    <button
+                      onClick={handlePlay}
+                      className="absolute inset-0 w-full h-full flex flex-col justify-between p-6 z-10 text-left bg-gradient-to-t from-black/85 via-black/35 to-transparent group-hover:from-black/90 transition-all duration-300"
+                    >
+                      {/* Top Badge */}
+                      <div className="self-start bg-emerald-650/90 text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-sm shadow-sm flex items-center gap-1.5 uppercase tracking-wider">
+                        <span className="w-2 h-2 rounded-full bg-white animate-ping" />
+                        Video Dokumenter
+                      </div>
+
+                      {/* Center Play Button */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-16 h-16 rounded-full bg-white text-emerald-600 flex items-center justify-center shadow-lg transform transition-all duration-300 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white">
+                          <Play className="h-8 w-8 ml-1 fill-current" />
+                        </div>
+                      </div>
+
+                      {/* Bottom Title & Description */}
+                      <div className="space-y-1">
+                        <p className="text-white font-bold text-base md:text-lg line-clamp-1 group-hover:text-emerald-300 transition-colors">
+                          Sejarah Desa Pojok Klitih
+                        </p>
+                        <p className="text-gray-300 text-xs font-medium">
+                          Klik untuk memutar video lokal
+                        </p>
+                      </div>
+                    </button>
                   )}
                 </div>
               </div>
