@@ -21,7 +21,7 @@ import {
 import { cn } from "@/lib/utils";
 
 // Ganti ID Video TikTok Anda di bawah ini
-const TIKTOK_VIDEO_ID = "7106093483984162075"; // ID Video TikTok (Contoh)
+const TIKTOK_VIDEO_ID = "7659560744521878791"; // ID Video TikTok Kelompok 27
 
 
 type Profile = {
