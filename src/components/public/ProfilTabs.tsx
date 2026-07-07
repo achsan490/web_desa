@@ -16,8 +16,13 @@ import {
   Heart,
   Milestone,
   Mountain,
+  Play,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+
+// Ganti ID Video TikTok Anda di bawah ini
+const TIKTOK_VIDEO_ID = "7106093483984162075"; // ID Video TikTok (Contoh)
+
 
 type Profile = {
   id: string;
@@ -101,6 +106,29 @@ export default function ProfilTabs({
                       {para}
                     </p>
                   ))}
+                </div>
+              </div>
+
+              {/* Video Sejarah Desa (Opsi A: Kolom Kiri) */}
+              <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm space-y-4">
+                <h3 className="font-black text-gray-900 text-lg flex items-center gap-2">
+                  <Play className="h-5 w-5 text-emerald-600 fill-emerald-600/10" />
+                  Video Dokumenter Sejarah Desa
+                </h3>
+                <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-sm border border-gray-150 bg-gray-950">
+                  {TIKTOK_VIDEO_ID ? (
+                    <iframe
+                      src={`https://www.tiktok.com/embed/v2/${TIKTOK_VIDEO_ID}`}
+                      className="absolute inset-0 w-full h-full border-none"
+                      allow="encrypted-media; picture-in-picture"
+                      allowFullScreen
+                      title="Video Sejarah Desa Pojok Klitih"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center text-gray-400 text-sm">
+                      Video belum dikonfigurasi
+                    </div>
+                  )}
                 </div>
               </div>
 
